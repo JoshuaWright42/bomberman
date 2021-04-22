@@ -1,0 +1,31 @@
+﻿<Properties StartupConfiguration="{C5215EF1-A933-46AA-ABB9-F16F98BCA83F}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="BomberManGame/Map.cs">
+    <Files>
+      <File FileName="BomberManGame/Drawable.cs" Line="18" Column="1" />
+      <File FileName="BomberManGame/Map.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="BomberMan" expanded="True">
+            <Node name="BomberManGame" expanded="True">
+              <Node name="Map.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="BomberMan" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.SplashKitUI PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
