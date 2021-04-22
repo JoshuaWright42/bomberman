@@ -1,6 +1,9 @@
-#Determine what files should be ignore, currently just ignoring build directories.
+#Determine what files should be ignored.
 
+.DS_Store
+./.vs/
 
+#Build directories
 ./BomberManGame/bin
 ./NUnitTests/bin
 ./SplashKitUI/bin
