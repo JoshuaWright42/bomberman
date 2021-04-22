@@ -1,0 +1,6 @@
+#Determine what files should be ignore, currently just ignoring build directories.
+
+
+./BomberManGame/bin
+./NUnitTests/bin
+./SplashKitUI/bin
