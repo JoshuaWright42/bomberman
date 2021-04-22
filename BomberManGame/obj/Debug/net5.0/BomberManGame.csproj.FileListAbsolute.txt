@@ -1,0 +1,12 @@
+/Users/joshuawright/Documents/OOP/BomberMan/BomberManGame/bin/Debug/net5.0/BomberManGame.deps.json
+/Users/joshuawright/Documents/OOP/BomberMan/BomberManGame/bin/Debug/net5.0/BomberManGame.dll
+/Users/joshuawright/Documents/OOP/BomberMan/BomberManGame/bin/Debug/net5.0/ref/BomberManGame.dll
+/Users/joshuawright/Documents/OOP/BomberMan/BomberManGame/bin/Debug/net5.0/BomberManGame.pdb
+/Users/joshuawright/Documents/OOP/BomberMan/BomberManGame/obj/Debug/net5.0/BomberManGame.csprojAssemblyReference.cache
+/Users/joshuawright/Documents/OOP/BomberMan/BomberManGame/obj/Debug/net5.0/BomberManGame.GeneratedMSBuildEditorConfig.editorconfig
+/Users/joshuawright/Documents/OOP/BomberMan/BomberManGame/obj/Debug/net5.0/BomberManGame.AssemblyInfoInputs.cache
+/Users/joshuawright/Documents/OOP/BomberMan/BomberManGame/obj/Debug/net5.0/BomberManGame.AssemblyInfo.cs
+/Users/joshuawright/Documents/OOP/BomberMan/BomberManGame/obj/Debug/net5.0/BomberManGame.csproj.CoreCompileInputs.cache
+/Users/joshuawright/Documents/OOP/BomberMan/BomberManGame/obj/Debug/net5.0/BomberManGame.dll
+/Users/joshuawright/Documents/OOP/BomberMan/BomberManGame/obj/Debug/net5.0/ref/BomberManGame.dll
+/Users/joshuawright/Documents/OOP/BomberMan/BomberManGame/obj/Debug/net5.0/BomberManGame.pdb

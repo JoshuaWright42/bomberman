@@ -1,0 +1,15 @@
+/Users/joshuawright/Documents/OOP/BomberMan/SplashKitUI/bin/Debug/netcoreapp5.0/SplashKitUI.deps.json
+/Users/joshuawright/Documents/OOP/BomberMan/SplashKitUI/bin/Debug/netcoreapp5.0/SplashKitUI.runtimeconfig.json
+/Users/joshuawright/Documents/OOP/BomberMan/SplashKitUI/bin/Debug/netcoreapp5.0/SplashKitUI.runtimeconfig.dev.json
+/Users/joshuawright/Documents/OOP/BomberMan/SplashKitUI/bin/Debug/netcoreapp5.0/SplashKitUI.dll
+/Users/joshuawright/Documents/OOP/BomberMan/SplashKitUI/bin/Debug/netcoreapp5.0/ref/SplashKitUI.dll
+/Users/joshuawright/Documents/OOP/BomberMan/SplashKitUI/bin/Debug/netcoreapp5.0/SplashKitUI.pdb
+/Users/joshuawright/Documents/OOP/BomberMan/SplashKitUI/obj/Debug/netcoreapp5.0/SplashKitUI.csprojAssemblyReference.cache
+/Users/joshuawright/Documents/OOP/BomberMan/SplashKitUI/obj/Debug/netcoreapp5.0/SplashKitUI.GeneratedMSBuildEditorConfig.editorconfig
+/Users/joshuawright/Documents/OOP/BomberMan/SplashKitUI/obj/Debug/netcoreapp5.0/SplashKitUI.AssemblyInfoInputs.cache
+/Users/joshuawright/Documents/OOP/BomberMan/SplashKitUI/obj/Debug/netcoreapp5.0/SplashKitUI.AssemblyInfo.cs
+/Users/joshuawright/Documents/OOP/BomberMan/SplashKitUI/obj/Debug/netcoreapp5.0/SplashKitUI.csproj.CoreCompileInputs.cache
+/Users/joshuawright/Documents/OOP/BomberMan/SplashKitUI/obj/Debug/netcoreapp5.0/SplashKitUI.dll
+/Users/joshuawright/Documents/OOP/BomberMan/SplashKitUI/obj/Debug/netcoreapp5.0/ref/SplashKitUI.dll
+/Users/joshuawright/Documents/OOP/BomberMan/SplashKitUI/obj/Debug/netcoreapp5.0/SplashKitUI.pdb
+/Users/joshuawright/Documents/OOP/BomberMan/SplashKitUI/obj/Debug/netcoreapp5.0/SplashKitUI.genruntimeconfig.cache
