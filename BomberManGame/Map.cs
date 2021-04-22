@@ -2,18 +2,40 @@
 
 namespace BomberManGame
 {
+    /// <summary>
+    /// Contains and manages the map of the game. Uses singleton design pattern.
+    /// Map uses a custom cell based design.
+    /// Cells are a quadruply linked list
+    /// AKA a doubly linked skip list
+    /// AKA a 2D linked list
+    /// </summary>
     public class Map: Drawable
     {
-        //Singleton
+        /// <summary>
+        /// Gets the only instance of Map.
+        /// </summary>
         public static Map Instance { get; private set; }
+
+        /// <summary>
+        /// Generates a fresh instance of map and overwrites the existing one if there is one.
+        /// </summary>
+        /// <param name="cols">Number of columns the map should have.</param>
+        /// <param name="rows">Number of rows the map should have.</param>
         public static void CreateNewInstance(int cols, int rows)
         {
             Instance = new Map(cols, rows);
         }
 
-
+        /// <summary>
+        /// Gets the root node of the map (the top left cell).
+        /// </summary>
         public Cell RootNode { get; }
 
+        /// <summary>
+        /// Used to construct/generate a new instance of the map. Handles creation of all necessary cells/nodes.
+        /// </summary>
+        /// <param name="cols">Number of columns the map should have.</param>
+        /// <param name="rows">Number of rows the map should have.</param>
         private Map(int cols, int rows): base (0, 0)
         {
             //Must have at least 1 column and 1 row
