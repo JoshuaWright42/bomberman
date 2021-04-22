@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "112HJuBeWoFsr3snDzaJx7DecgyU6kmgWa52vBNJg0hf4dHy6G9k7aQq9VVi5u0TX+1RS7hYuBQNCuNh6xGuIg==",
+  "dgSpecHash": "KLdjZlimoixqEaoDj9Ks60VSOAcTfzMMVHYUvr3zNAxDY0Vz+Dlcq8M+u55mEMYv6F84IWZRI++nx1qB4JoqUQ==",
   "success": true,
-  "projectFilePath": "/Users/joshuawright/Documents/OOP/BomberMan/SplashKitUI/SplashKitUI.csproj",
+  "projectFilePath": "/Users/joshuawright/Documents/OOP/bomberman/SplashKitUI/SplashKitUI.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

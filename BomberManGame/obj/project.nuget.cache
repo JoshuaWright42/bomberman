@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YS6qW1WOwsf8YlvMwnhh1JmZSyxPWD/z0n8DFxxGVIrHyFsmfcZZQM6SS2bGXwUqD1N1SVeA2UfM+rwnClmjOw==",
+  "dgSpecHash": "ACnICR05j9hzBi3n7hbmN+tgfZ4wF4ZUT843aLa9gzaQj6xuprJt5RBmghLIsb0vihEyFJjS4xT5slOBaBSudQ==",
   "success": true,
-  "projectFilePath": "/Users/joshuawright/Documents/OOP/BomberMan/BomberManGame/BomberManGame.csproj",
+  "projectFilePath": "/Users/joshuawright/Documents/OOP/bomberman/BomberManGame/BomberManGame.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

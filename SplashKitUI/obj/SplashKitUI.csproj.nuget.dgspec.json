@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/joshuawright/Documents/OOP/BomberMan/SplashKitUI/SplashKitUI.csproj": {}
+    "/Users/joshuawright/Documents/OOP/bomberman/SplashKitUI/SplashKitUI.csproj": {}
   },
   "projects": {
-    "/Users/joshuawright/Documents/OOP/BomberMan/SplashKitUI/SplashKitUI.csproj": {
+    "/Users/joshuawright/Documents/OOP/bomberman/SplashKitUI/SplashKitUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/joshuawright/Documents/OOP/BomberMan/SplashKitUI/SplashKitUI.csproj",
+        "projectUniqueName": "/Users/joshuawright/Documents/OOP/bomberman/SplashKitUI/SplashKitUI.csproj",
         "projectName": "SplashKitUI",
-        "projectPath": "/Users/joshuawright/Documents/OOP/BomberMan/SplashKitUI/SplashKitUI.csproj",
+        "projectPath": "/Users/joshuawright/Documents/OOP/bomberman/SplashKitUI/SplashKitUI.csproj",
         "packagesPath": "/Users/joshuawright/.nuget/packages/",
-        "outputPath": "/Users/joshuawright/Documents/OOP/BomberMan/SplashKitUI/obj/",
+        "outputPath": "/Users/joshuawright/Documents/OOP/bomberman/SplashKitUI/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/joshuawright/.config/NuGet/NuGet.Config"

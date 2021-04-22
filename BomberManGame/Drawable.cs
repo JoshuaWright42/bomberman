@@ -1,12 +1,10 @@
 ﻿using System;
 namespace BomberManGame
 {
-    public delegate void DrawObject();
-
     public abstract class Drawable
     {
+        public delegate void DrawObject();
         public static event DrawObject Drawables;
-
         public static void StartDrawing()
         {
             OnDraw();

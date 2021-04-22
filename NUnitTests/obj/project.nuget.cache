@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mFkQs87+YtIGRWXvoFgDyaOakDCk660heLt62RKhJJjLvvMZbBsdbYJzZq27dIsoGESH3GpaEJYljcko1yNQhQ==",
+  "dgSpecHash": "5Yv9Sxw4QS2167oqdFFG0G2U/nr4TNIYyJx8z7dFxI2kRbeLftuhgwSGKUfumN+AO0klXxXqJYv6xNrfzbcxUw==",
   "success": true,
-  "projectFilePath": "/Users/joshuawright/Documents/OOP/BomberMan/NUnitTests/NUnitTests.csproj",
+  "projectFilePath": "/Users/joshuawright/Documents/OOP/bomberman/NUnitTests/NUnitTests.csproj",
   "expectedPackageFiles": [
     "/Users/joshuawright/.nuget/packages/microsoft.codecoverage/16.5.0/microsoft.codecoverage.16.5.0.nupkg.sha512",
     "/Users/joshuawright/.nuget/packages/microsoft.csharp/4.0.1/microsoft.csharp.4.0.1.nupkg.sha512",

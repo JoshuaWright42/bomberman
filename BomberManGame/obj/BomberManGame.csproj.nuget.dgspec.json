@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/joshuawright/Documents/OOP/BomberMan/BomberManGame/BomberManGame.csproj": {}
+    "/Users/joshuawright/Documents/OOP/bomberman/BomberManGame/BomberManGame.csproj": {}
   },
   "projects": {
-    "/Users/joshuawright/Documents/OOP/BomberMan/BomberManGame/BomberManGame.csproj": {
+    "/Users/joshuawright/Documents/OOP/bomberman/BomberManGame/BomberManGame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/joshuawright/Documents/OOP/BomberMan/BomberManGame/BomberManGame.csproj",
+        "projectUniqueName": "/Users/joshuawright/Documents/OOP/bomberman/BomberManGame/BomberManGame.csproj",
         "projectName": "BomberManGame",
-        "projectPath": "/Users/joshuawright/Documents/OOP/BomberMan/BomberManGame/BomberManGame.csproj",
+        "projectPath": "/Users/joshuawright/Documents/OOP/bomberman/BomberManGame/BomberManGame.csproj",
         "packagesPath": "/Users/joshuawright/.nuget/packages/",
-        "outputPath": "/Users/joshuawright/Documents/OOP/BomberMan/BomberManGame/obj/",
+        "outputPath": "/Users/joshuawright/Documents/OOP/bomberman/BomberManGame/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/joshuawright/.config/NuGet/NuGet.Config"
