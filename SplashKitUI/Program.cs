@@ -1,5 +1,6 @@
 using System;
 using SplashKitSDK;
+using BomberManGame;
 
 public class Program
 {

@@ -12,12 +12,20 @@ namespace BomberManGame
         /// <summary>
         /// Delegate for Drawables event.
         /// </summary>
-        public delegate void DrawObject();
+        private delegate void DrawObject();
 
         /// <summary>
-        /// Event reponsible for instructing every Drawable object to Draw./
+        /// Event reponsible for instructing every Drawable object to Draw.
         /// </summary>
-        public static event DrawObject Drawables;
+        private static event DrawObject Drawables;
+
+        /// <summary>
+        /// Subscribe this Drawable object to the Drawables event.
+        /// </summary>
+        public void Register()
+        {
+            Drawables += Draw;
+        }
 
         /// <summary>
         /// Starts a drawing event.
@@ -34,6 +42,7 @@ namespace BomberManGame
         private static void OnDraw()
         {
             Drawables?.Invoke();
+            Drawables = null; //clears subscribers, only objects that have changed are subscribed
         }
 
         /// <summary>
@@ -45,13 +54,13 @@ namespace BomberManGame
         {
             X = x;
             Y = y;
-            Drawables += Draw;
+            Register();
         }
 
         /// <summary>
         /// Draws the object, can be overidden.
         /// </summary>
-        public virtual void Draw()
+        protected virtual void Draw()
         {
             throw new NotImplementedException();
         }

@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net5.0": {}
+    "net5.0": {
+      "BomberManGame/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/BomberManGame.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BomberManGame.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "BomberManGame/1.0.0": {
+      "type": "project",
+      "path": "../BomberManGame/BomberManGame.csproj",
+      "msbuildProject": "../BomberManGame/BomberManGame.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net5.0": []
+    "net5.0": [
+      "BomberManGame >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "/Users/joshuawright/.nuget/packages/": {}
@@ -13,25 +32,29 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/joshuawright/Documents/OOP/BomberMan/SplashKitUI/SplashKitUI.csproj",
+      "projectUniqueName": "/Users/joshuawright/Documents/OOP/bomberman/SplashKitUI/SplashKitUI.csproj",
       "projectName": "SplashKitUI",
-      "projectPath": "/Users/joshuawright/Documents/OOP/BomberMan/SplashKitUI/SplashKitUI.csproj",
+      "projectPath": "/Users/joshuawright/Documents/OOP/bomberman/SplashKitUI/SplashKitUI.csproj",
       "packagesPath": "/Users/joshuawright/.nuget/packages/",
-      "outputPath": "/Users/joshuawright/Documents/OOP/BomberMan/SplashKitUI/obj/",
+      "outputPath": "/Users/joshuawright/Documents/OOP/bomberman/SplashKitUI/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/joshuawright/.config/NuGet/NuGet.Config"
+        "/Users/joshuawright/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
-        "netcoreapp5.0"
+        "net5.0"
       ],
       "sources": {
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net5.0": {
-          "targetAlias": "netcoreapp5.0",
-          "projectReferences": {}
+          "targetAlias": "net5.0",
+          "projectReferences": {
+            "/Users/joshuawright/Documents/OOP/bomberman/BomberManGame/BomberManGame.csproj": {
+              "projectPath": "/Users/joshuawright/Documents/OOP/bomberman/BomberManGame/BomberManGame.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -42,7 +65,7 @@
     },
     "frameworks": {
       "net5.0": {
-        "targetAlias": "netcoreapp5.0",
+        "targetAlias": "net5.0",
         "imports": [
           "net461",
           "net462",

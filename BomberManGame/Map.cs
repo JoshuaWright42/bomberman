@@ -36,7 +36,7 @@ namespace BomberManGame
         /// </summary>
         /// <param name="cols">Number of columns the map should have.</param>
         /// <param name="rows">Number of rows the map should have.</param>
-        private Map(int cols, int rows): base (0, 0)
+        private Map(int cols, int rows): base (0, 0) //consider refactoring method at later stage
         {
             //Must have at least 1 column and 1 row
             if (cols <= 0 || rows <= 0)
@@ -45,7 +45,7 @@ namespace BomberManGame
             }
 
             //Top-Left cell
-            RootNode = new Cell();
+            RootNode = new Cell(0, 0);
 
             //Cell to the left of the current node
             Cell colNodeLeft = null;
@@ -66,7 +66,7 @@ namespace BomberManGame
                 for (int row = 1; row < rows; row++)
                 {
                     //create new row/cell
-                    Cell rowNode = new Cell();
+                    Cell rowNode = new Cell(col, row);
 
                     //Link cell above with current cell
                     rowNodeUp.Neighbours.Down = rowNode;
@@ -94,12 +94,38 @@ namespace BomberManGame
                     colNodeLeft = colNode;
 
                     //Create new current column
-                    colNode = new Cell();
+                    colNode = new Cell(col + 1, 0);
 
                     //Link cell to the left with new current column
                     colNodeLeft.Neighbours.Right = colNode;
                     colNode.Neighbours.Left = colNodeLeft;
                 }
+            }
+        }
+
+        /// <summary>
+        /// Indexer that allows you to get a specific cell.
+        /// Syntax is same is using a 2D array.
+        /// </summary>
+        /// <param name="x">Column of desired Cell.</param>
+        /// <param name="y">Row of desired Cell.</param>
+        /// <returns></returns>
+        public Cell this[int x, int y]
+        {
+            get
+            {
+                Cell result = RootNode;
+                for (int i = 0; i < (uint)x; i++)
+                {
+                    result = result.Neighbours.Right;
+                    if (result == null) throw new IndexOutOfRangeException("Provided x index is out of range.");
+                }
+                for (int j = 0; j < (uint)y; j++)
+                {
+                    result = result.Neighbours.Down;
+                    if (result == null) throw new IndexOutOfRangeException("Provided y index is out of range.");
+                }
+                return result;
             }
         }
     }
