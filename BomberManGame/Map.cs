@@ -23,7 +23,7 @@ namespace BomberManGame
         /// <param name="rows">Number of rows the map should have.</param>
         public static void CreateNewInstance(int cols, int rows)
         {
-            Instance = new Map(cols, rows);
+            Instance = new(cols, rows);
         }
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace BomberManGame
             }
 
             //Top-Left cell
-            RootNode = new Cell(0, 0);
+            RootNode = new(0, 0);
 
             //Cell to the left of the current node
             Cell colNodeLeft = null;
@@ -66,7 +66,7 @@ namespace BomberManGame
                 for (int row = 1; row < rows; row++)
                 {
                     //create new row/cell
-                    Cell rowNode = new Cell(col, row);
+                    Cell rowNode = new(col, row);
 
                     //Link cell above with current cell
                     rowNodeUp.Neighbours.Down = rowNode;
@@ -94,7 +94,7 @@ namespace BomberManGame
                     colNodeLeft = colNode;
 
                     //Create new current column
-                    colNode = new Cell(col + 1, 0);
+                    colNode = new(col + 1, 0);
 
                     //Link cell to the left with new current column
                     colNodeLeft.Neighbours.Right = colNode;

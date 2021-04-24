@@ -67,10 +67,7 @@ namespace BomberManGame
             /// <returns>Cell</returns>
             public IEnumerator<Cell> GetEnumerator()
             {
-                yield return Left;
-                yield return Right;
-                yield return Up;
-                yield return Down;
+                for (int i = 0; i < 4; i++) yield return this[i];
             }
 
             IEnumerator IEnumerable.GetEnumerator() //requirement of IEnumerable interface
@@ -82,7 +79,7 @@ namespace BomberManGame
         /// <summary>
         /// Used to access the Cell's nodes/neighbours.
         /// </summary>
-        public Nodes Neighbours { get; }
+        public Nodes Neighbours { get; init; }
 
         /// <summary>
         /// Used to instantiate a new cell.
@@ -92,7 +89,7 @@ namespace BomberManGame
         /// <param name="y">Represents cell number on y axis</param>
         public Cell(int x, int y): base (x, y)
         {
-            Neighbours = new Nodes();
+            Neighbours = new();
         }
     }
 }
