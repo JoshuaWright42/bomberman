@@ -20,7 +20,7 @@ namespace NUnitTests
         /// </summary>
         /// <param name="cols">Number of columns there should be.</param>
         /// <param name="rows">Number of rows there should be.</param>
-        [TestCase(1, 1)]
+        [TestCase(3, 3)]
         [TestCase(2, 2)]
         [TestCase(1, 3)]
         [TestCase(3, 1)]
@@ -31,13 +31,13 @@ namespace NUnitTests
             int colCounter = 0; //counter to verify correct amount of columns
 
             //foreach column
-            for (Cell col = Map.Instance.RootNode; col != null; col = col.Neighbours.Right)
+            for (Cell col = Map.Instance.RootCell; col != null; col = col.Right)
             {
                 colCounter++;
                 int rowCounter = 0; //counter to verify correct amount of rows
 
                 //foreach row in this column
-                for (Cell row = col; row != null; row = row.Neighbours.Down)
+                for (Cell row = col; row != null; row = row.Down)
                 {
                     rowCounter++;
                 }

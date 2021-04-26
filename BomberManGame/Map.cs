@@ -1,128 +1,119 @@
-﻿using System;
-
+using System;
 namespace BomberManGame
 {
     /// <summary>
-    /// Contains and manages the map of the game. Uses singleton design pattern.
-    /// Map uses a custom cell based design.
-    /// Cells are a quadruply linked list
-    /// AKA a doubly linked skip list
-    /// AKA a 2D linked list
+    /// Singleton. Consists of a 2D doubly linked list that represents
+    /// the entire map.
     /// </summary>
-    public class Map: Drawable
+    public class Map
     {
-        /// <summary>
-        /// Gets the only instance of Map.
-        /// </summary>
-        public static Map Instance { get; private set; }
+        private int Columns { get; init; } //number of columns
+        private int Rows { get; init; } //number of rows
 
         /// <summary>
-        /// Generates a fresh instance of map and overwrites the existing one if there is one.
+        /// Recursive method that Constructs the cells for each column.
+        /// When this method is complete, the 2D Doubly Linked list has been
+        /// fully created.
         /// </summary>
-        /// <param name="cols">Number of columns the map should have.</param>
-        /// <param name="rows">Number of rows the map should have.</param>
-        public static void CreateNewInstance(int cols, int rows)
+        /// <param name="col">Indexer for Columns</param>
+        /// <param name="row">Indexer for Row</param>
+        /// <param name="left">The previous column</param>
+        /// <returns></returns>
+        private Cell ConstructColumn(int col, int row, Cell left)
         {
-            Instance = new Map(cols, rows);
+            //reached right border, terminate recursion
+            if (col >= Columns) return null;
+
+            Cell newCell = new(col, row);
+            newCell.Left = left;
+
+            //Begin constructing each row for this column
+            newCell.Down = ConstructRow(col, row + 1, left?.Down, newCell);
+
+            //Construct next column
+            newCell.Right = ConstructColumn(col + 1, row, newCell);
+
+            //Column complete
+            return newCell;
         }
 
         /// <summary>
-        /// Gets the root node of the map (the top left cell).
+        /// Recursive method that constructs the cells for each row.
+        /// When this method is complete, a single column has been
+        /// fully created.
         /// </summary>
-        public Cell RootNode { get; }
+        /// <param name="col">Indexer for Column</param>
+        /// <param name="row">Indexer for Row</param>
+        /// <param name="left">The previous Column</param>
+        /// <param name="above">The row above</param>
+        /// <returns></returns>
+        private Cell ConstructRow(int col, int row, Cell left, Cell above)
+        {
+            //reached bottom border, terminate recursion
+            if (row >= Rows) return null;
+
+            Cell newCell = new(col, row);
+            newCell.Up = above;
+            newCell.Left = left;
+
+            //if there is a cell to the left, assign right cell to current cell
+            if (left != null) left.Right = newCell;
+
+            //continue constructing rows
+            newCell.Down = ConstructRow(col, row + 1, left?.Down, newCell);
+
+            //rows/columns are complete
+            return newCell;
+        }
 
         /// <summary>
-        /// Used to construct/generate a new instance of the map. Handles creation of all necessary cells/nodes.
+        /// Constructs a new map.
         /// </summary>
-        /// <param name="cols">Number of columns the map should have.</param>
-        /// <param name="rows">Number of rows the map should have.</param>
-        private Map(int cols, int rows): base (0, 0) //consider refactoring method at later stage
+        /// <param name="cols">How many columns the map will have.</param>
+        /// <param name="rows">How many rows the map will have.</param>
+        private Map(int cols, int rows)
         {
-            //Must have at least 1 column and 1 row
             if (cols <= 0 || rows <= 0)
             {
                 throw new IndexOutOfRangeException("Provided values for Columns (cols) and Rows (rows) must be greater than 0.");
             }
+            Columns = cols;
+            Rows = rows;
+            RootCell = ConstructColumn(0, 0, null);
+        }
 
-            //Top-Left cell
-            RootNode = new Cell(0, 0);
+        public Cell RootCell { get; init; } //Top-Left cell of 2D doubly linked list.
+        public static Map Instance { get; private set; } //Single instance of Map
 
-            //Cell to the left of the current node
-            Cell colNodeLeft = null;
-
-            //Current cell/column
-            Cell colNode = RootNode;
-
-            //foreach column
-            for (int col = 0; col < cols; col++)
-            {
-                //Cell above the current node
-                Cell rowNodeUp = colNode;
-
-                //assign the node to the left of current node if one exists
-                Cell rowNodeLeft = colNodeLeft != null ? colNodeLeft.Neighbours.Down : null;
-
-                //foreach row in current column
-                for (int row = 1; row < rows; row++)
-                {
-                    //create new row/cell
-                    Cell rowNode = new Cell(col, row);
-
-                    //Link cell above with current cell
-                    rowNodeUp.Neighbours.Down = rowNode;
-                    rowNode.Neighbours.Up = rowNodeUp;
-
-                    //Current cell becomes the cell "above" for next row/iteration
-                    rowNodeUp = rowNode;
-
-                    //if there is a cell to the left, link it
-                    if (rowNodeLeft != null)
-                    {
-                        //links cell to the left with current cell
-                        rowNodeLeft.Neighbours.Right = rowNode;
-                        rowNode.Neighbours.Left = rowNodeLeft;
-
-                        //Cell to the "left" becomes the next cell down ready for next row/iteration
-                        rowNodeLeft = rowNodeLeft.Neighbours.Down;
-                    }
-                }
-
-                //This code creates the next column, which we don't want to do if we are in the last column
-                if (col < cols - 1)
-                {
-                    //Current column becomes the column to the left
-                    colNodeLeft = colNode;
-
-                    //Create new current column
-                    colNode = new Cell(col + 1, 0);
-
-                    //Link cell to the left with new current column
-                    colNodeLeft.Neighbours.Right = colNode;
-                    colNode.Neighbours.Left = colNodeLeft;
-                }
-            }
+        /// <summary>
+        /// Creates a new instance of the map.
+        /// </summary>
+        /// <param name="cols">How many columns the map will have.</param>
+        /// <param name="rows">How many rows the map will have.</param>
+        public static void CreateNewInstance(int cols, int rows)
+        {
+            Instance = new(cols, rows);
         }
 
         /// <summary>
-        /// Indexer that allows you to get a specific cell.
-        /// Syntax is same is using a 2D array.
+        /// Indexer that gets a specific cell from the map.
         /// </summary>
-        /// <param name="x">Column of desired Cell.</param>
-        /// <param name="y">Row of desired Cell.</param>
+        /// <param name="x">Column of desired cell.</param>
+        /// <param name="y">Row of desired cell.</param>
         /// <returns></returns>
         public Cell this[int x, int y]
         {
             get
             {
-                Cell result = RootNode;
-                for (int i = 0; i < (uint)x; i++)
+                Cell result = RootCell;
+                for (int i = 0; i < (uint)x; i++) //find column
                 {
-                    result = result.Neighbours.Right;
+                    result = result.Right;
                     if (result == null) throw new IndexOutOfRangeException("Provided x index is out of range.");
                 }
-                for (int j = 0; j < (uint)y; j++)
+                for (int j = 0; j < (uint)y; j++) //find row
                 {
-                    result = result.Neighbours.Down;
+                    result = result.Down;
                     if (result == null) throw new IndexOutOfRangeException("Provided y index is out of range.");
                 }
                 return result;
