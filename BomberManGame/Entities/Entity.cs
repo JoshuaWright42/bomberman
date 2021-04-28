@@ -13,6 +13,9 @@ namespace BomberManGame
             Components = comps;
         }
 
-        public Component this[Type t] { get => Components[t]; }
+        public T GetComponent<T>() where T: Component
+        {
+            return (T)Components[typeof(T)];
+        }
     }
 }

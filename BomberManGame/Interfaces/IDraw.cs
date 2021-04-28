@@ -3,7 +3,14 @@ namespace BomberManGame
 {
     public interface IDraw
     {
-        void onDraw();
-        void IDrawSubscribe();
+        public void onDraw()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void IDrawSubscribe()
+        {
+            EventPublisher.Instance.GetEvent<EDraw>().Subscribe(this);
+        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 namespace BomberManGame
 {
-    public class EDraw
+    public class EDraw: Event
     {
         private delegate void DrawObject();
         private event DrawObject Drawables;

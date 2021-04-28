@@ -3,8 +3,8 @@ namespace BomberManGame
 {
     public class CDraw: Component
     {
-        private float X { get; set; }
-        private float Y { get; set; }
+        public float X { get; set; }
+        public float Y { get; set; }
 
         public CDraw(float x, float y)
         {

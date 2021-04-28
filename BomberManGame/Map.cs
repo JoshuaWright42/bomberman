@@ -117,7 +117,7 @@ namespace BomberManGame
                     if (result == null) throw new IndexOutOfRangeException("Provided y index is out of range.");
                 }
                 return result;
-            }
+            } 
         }
     }
 }

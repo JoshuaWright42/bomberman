@@ -31,12 +31,9 @@ namespace BomberManGame
             _publishers.Add(type, pub);
         }
 
-        public Event this[Type t]
+        public T GetEvent<T>() where T: Event
         {
-            get
-            {
-                return _publishers[t];
-            }
+            return (T)_publishers[typeof(T)];
         }
     }
 }
