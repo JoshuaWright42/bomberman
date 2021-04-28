@@ -7,15 +7,15 @@ namespace BomberManGame
     /// <summary>
     /// Class that represents a single cell in a 2D Doubly Linked List.
     /// </summary>
-    public class Cell : Drawable, IEnumerable<Cell>
+    public class Cell : IEnumerable<Cell>
     {
-        public object Data { get; set; }//refactor later when correct data type exists
+        public ITile Data { get; set; }
         public Cell Left { get; set; }
         public Cell Right { get; set; }
         public Cell Up { get; set; }
         public Cell Down { get; set; }
 
-        public Cell(int x, int y) : base(x, y)
+        public Cell(int x, int y)
         {
             //needs implementation once Tile data type has been created
         }
