@@ -9,8 +9,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Components\" />
-    <Folder Include="Entities\" />
-    <Folder Include="Interfaces\" />
+    <Folder Include="Entity\" />
     <Folder Include="Events\" />
   </ItemGroup>
 </Project>

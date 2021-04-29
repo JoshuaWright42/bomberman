@@ -6,6 +6,8 @@ namespace BomberManGame
 {
     /// <summary>
     /// Class that represents a single cell in a 2D Doubly Linked List.
+    /// A Cell knows who it's neighbouring cells are in each of 4 directions.
+    /// Carries a payload of type ITile.
     /// </summary>
     public class Cell : IEnumerable<Cell>
     {
