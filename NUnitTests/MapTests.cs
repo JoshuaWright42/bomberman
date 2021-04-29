@@ -3,6 +3,7 @@ using System.Reflection;
 using NUnit.Framework;
 using BomberManGame;
 using System;
+using BomberManGame.EntityComponents;
 
 namespace NUnitTests
 {
@@ -85,8 +86,9 @@ namespace NUnitTests
         public void TestIndexer(int x, int y)
         {
             Cell actual = Map.Instance[x, y];
-            Assert.AreEqual(x, actual.X, "Cell x value did not match given index!");
-            Assert.AreEqual(y, actual.Y, "Cell y value did not match given index!");
+            CDraw actualPos = (actual.Data as Component).GetComponent<CDraw>();
+            Assert.AreEqual(x, actualPos.X, "Cell x value did not match given index!");
+            Assert.AreEqual(y, actualPos.Y, "Cell y value did not match given index!");
         }
 
         /// <summary>
