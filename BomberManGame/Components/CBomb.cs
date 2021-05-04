@@ -41,10 +41,12 @@ namespace BomberManGame.EntityComponents
         /// <param name="size">The current size of the explosion.</param>
         /// <param name="dir">Direction the explosion is travelling. -1 if at epicentre.</param>
         public void Explode(int size, int dir = -1)
-        { 
+        {
+            //assign cell new explosion entity
             CDraw pos = GetComponent<CDraw>();
-            //assign cell result of asking factory for explosion entitiy
-            GetComponent<CLocation>().Location.Data = EntityFactory.Instance.CreateExplosion(pos.X, pos.Y).GetComponent<CExplosion>() as ITile;
+            Entity exp = EntityFactory.Instance.CreateExplosion(pos.X, pos.Y);
+            GetComponent<CLocation>().Location.Data = (ITile)exp.GetComponent<CExplosion>();
+
             if (size > 0) // has the explosion finished?
             {
                 Cell location = GetComponent<CLocation>().Location; //get current cell

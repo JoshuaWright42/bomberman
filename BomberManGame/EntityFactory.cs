@@ -33,12 +33,25 @@ namespace BomberManGame
             Entity result = new Entity();
 
             //Build explosion entity
-            result.AddComponent<CDraw>(new CDraw(result, x, y));
             CExplosion exp = new CExplosion(result);
+            result.AddComponent<CDraw>(new CDraw(result, x, y));
             result.AddComponent<CExplosion>(exp);
             result.AddComponent<CTimer>(new CTimer(result, EXPLOSION_LENGTH, exp.onComplete));
 
             //return
+            return result;
+        }
+
+        /// <summary>
+        /// Creates an Air entity which simply represents an empty cell.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        public Entity CreateAir(int x, int y)
+        {
+            Entity result = new Entity();
+            result.AddComponent<CDraw>(new CDraw(result, x, y));
             return result;
         }
     }

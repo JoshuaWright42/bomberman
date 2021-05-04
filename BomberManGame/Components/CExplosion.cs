@@ -24,22 +24,10 @@ namespace BomberManGame.EntityComponents
         /// <param name="e"></param>
         public void onComplete(object source, EventArgs e)
         {
-            throw new NotImplementedException();
-            //TODO: assign cell new air/background entity
-        }
-
-        /// <summary>
-        /// Handles what happens if this tile/cell is instructed to explode mid-
-        /// explosion. Essentially just overwrites itself with a new explosion entity.
-        /// Passes explosion on to next cell if explosion not finished (size > 0).
-        /// </summary>
-        /// <param name="size">The current size of the explosion.</param>
-        /// <param name="dir">Direction the explosion is travelling. -1 if at epicentre.</param>
-        public void Explode(int size, int dir = -1)
-        {
-            throw new NotImplementedException();
-            //TODO: assign cell new explostion entity
-            if (size > 0) GetComponent<CLocation>().Location[dir].Data.Explode(size - 1, dir);
+            //assign cell new air entity
+            CDraw pos = GetComponent<CDraw>();
+            Entity air = EntityFactory.Instance.CreateAir(pos.X, pos.Y);
+            GetComponent<CLocation>().Location.Data = (ITile)air.GetComponent<CAir>();
         }
     }
 }
