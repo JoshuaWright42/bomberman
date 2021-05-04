@@ -12,8 +12,6 @@ namespace BomberManGame.EntityComponents
         /// Default component constructor.
         /// </summary>
         /// <param name="self"></param>
-        public CAir(Entity self): base (self)
-        {
-        }
+        public CAir(Entity self): base (self) { }
     }
 }
