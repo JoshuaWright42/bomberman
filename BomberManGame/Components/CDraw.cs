@@ -8,8 +8,8 @@ namespace BomberManGame.EntityComponents
     /// </summary>
     public class CDraw: Component
     {
-        public float X { get; set; } // X
-        public float Y { get; set; } // Y
+        public int X { get; set; } // X
+        public int Y { get; set; } // Y
 
         /// <summary>
         /// Constructor. Initialises X and Y using given parameters.
@@ -17,7 +17,7 @@ namespace BomberManGame.EntityComponents
         /// <param name="self">The Entity this component belongs too.</param>
         /// <param name="x">X position.</param>
         /// <param name="y">Y position.</param>
-        internal CDraw(Entity self, float x, float y): base (self)
+        internal CDraw(Entity self, int x, int y): base (self)
         {
             X = x;
             Y = y;
@@ -29,7 +29,7 @@ namespace BomberManGame.EntityComponents
         /// </summary>
         public void onDraw()
         {
-            throw new NotImplementedException();
+            UIAdapter.DrawEntity(x, y, EntityType);
         }
 
         /// <summary>

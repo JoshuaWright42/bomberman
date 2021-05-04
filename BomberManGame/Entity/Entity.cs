@@ -19,7 +19,7 @@ namespace BomberManGame.EntityComponents
         /// <summary>
         /// Consutructor. Initialises componnent dictionary.
         /// </summary>
-        public Entity() => Components = new Dictionary<Type, Component>();
+        internal Entity() => Components = new Dictionary<Type, Component>();
 
         /// <summary>
         /// Adds a new component to the Entity.
