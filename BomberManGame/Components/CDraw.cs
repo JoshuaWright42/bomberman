@@ -22,7 +22,8 @@ namespace BomberManGame.EntityComponents
         {
             X = x;
             Y = y;
-            Type = type;    
+            Type = type;
+            Subscribe();
         }
 
         /// <summary>

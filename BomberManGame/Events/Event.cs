@@ -10,7 +10,7 @@ namespace BomberManGame
         /// <summary>
         /// Constructor. Simply calls Register().
         /// </summary>
-        public Event() => Register();
+        public Event() { }
 
         /// <summary>
         /// Registers the event with the EventPublisher.

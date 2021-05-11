@@ -20,7 +20,7 @@
       "outputPath": "/Users/joshuawright/Documents/OOP/bomberman/BomberManGame/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/joshuawright/.config/NuGet/NuGet.Config"
+        "/Users/joshuawright/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"

@@ -2,11 +2,16 @@ using System;
 using SplashKitSDK;
 using BomberManGame;
 
-public class Program
+namespace SplashKitUI
 {
-    public static void Main()
+    public class Program
     {
-        new Window("Test Window", 800, 600);
-        SplashKit.Delay(5000);
+        public static void Main()
+        {
+            new SplashKitAdapter();
+            Game game = new Game();
+            game.StartGame();
+        }
     }
+
 }

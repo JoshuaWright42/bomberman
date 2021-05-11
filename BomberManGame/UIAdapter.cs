@@ -59,5 +59,7 @@ namespace BomberManGame
         public abstract void RefreshScreen();
         public abstract bool HasCollided(CPlayer plr, ITile tile);
         public abstract void LoadAssets();
+        public abstract void OpenGameWindow(int cols, int rows);
+        public abstract bool GameExited();
     }
 }

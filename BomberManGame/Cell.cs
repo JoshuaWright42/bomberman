@@ -17,9 +17,9 @@ namespace BomberManGame
         public Cell Up { get; set; }
         public Cell Down { get; set; }
 
-        public Cell(int x, int y)
+        public Cell(int x, int y, int cols, int rows)
         {
-            Data = EntityFactory.Instance.CreateEntityForMap(x, y, this);
+            Data = EntityFactory.Instance.CreateEntityForMap(x, y, this, cols, rows);
         }
 
         /// <summary>

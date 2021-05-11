@@ -5,8 +5,6 @@ namespace BomberManGame
     public class EntityFactory
     {
         const int EXPLOSION_LENGTH = 200;
-        const int COLUMNS = 20;
-        const int ROWS = 10;
 
 
         private static EntityFactory _instance;
@@ -77,14 +75,14 @@ namespace BomberManGame
             return result;
         }
 
-        public ITile CreateEntityForMap(int x, int y, Cell loc)
+        public ITile CreateEntityForMap(int x, int y, Cell loc, int cols, int rows)
         {
             Entity newEnt = new Entity();
             EntityType type;
             Component result;
 
             //brick blocks
-            if (x == 0 || y == 0 || x == COLUMNS - 1 || y == ROWS - 1
+            if (x == 0 || y == 0 || x == cols - 1 || y == rows - 1
                 || (x % 2 == 0 && y % 2 == 0))
             {
                 result = new CBrick(newEnt);    

@@ -7,8 +7,8 @@ namespace BomberManGame
     /// </summary>
     public class Map
     {
-        private int Columns { get; init; } //number of columns
-        private int Rows { get; init; } //number of rows
+        public int Columns { get; init; } //number of columns
+        public int Rows { get; init; } //number of rows
 
         /// <summary>
         /// Recursive method that Constructs the cells for each column.
@@ -24,7 +24,7 @@ namespace BomberManGame
             //reached right border, terminate recursion
             if (col >= Columns) return null;
 
-            Cell newCell = new(col, row);
+            Cell newCell = new(col, row, Columns, Rows);
             newCell.Left = left;
 
             //Begin constructing each row for this column
@@ -52,7 +52,7 @@ namespace BomberManGame
             //reached bottom border, terminate recursion
             if (row >= Rows) return null;
 
-            Cell newCell = new(col, row);
+            Cell newCell = new(col, row, Columns, Rows);
             newCell.Up = above;
             newCell.Left = left;
 

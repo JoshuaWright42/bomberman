@@ -1,0 +1,6 @@
+// BITMAP,name,filename
+BITMAP,Bomb,Bomb.png
+BITMAP,Air,Air.png
+BITMAP,Brick,Brick.png
+BITMAP,Explosion,Explosion.png
+BITMAP,Player1,PlayerRed.png

@@ -22,7 +22,11 @@ namespace BomberManGame
         /// <summary>
         /// Constructor must be private since this is a singleton.
         /// </summary>
-        private EventPublisher() { }
+        private EventPublisher()
+        {
+            Register(typeof(EDraw), new EDraw());
+            Register(typeof(EInput), new EInput());
+        }
 
         /// <summary>
         /// Property for one and only instance. Creates a new instance if once does not exist.
