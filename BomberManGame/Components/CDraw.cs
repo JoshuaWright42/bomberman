@@ -6,10 +6,11 @@ namespace BomberManGame.EntityComponents
     /// Responsible for knowing where an entity is and handling any related draw
     /// functionality.
     /// </summary>
-    public class CDraw: Component
+    public class CDraw : Component
     {
         public int X { get; set; } // X
         public int Y { get; set; } // Y
+        public EntityType Type { get; init; }
 
         /// <summary>
         /// Constructor. Initialises X and Y using given parameters.
@@ -17,10 +18,11 @@ namespace BomberManGame.EntityComponents
         /// <param name="self">The Entity this component belongs too.</param>
         /// <param name="x">X position.</param>
         /// <param name="y">Y position.</param>
-        internal CDraw(Entity self, int x, int y): base (self)
+        internal CDraw(Entity self, int x, int y, EntityType type): base (self)
         {
             X = x;
             Y = y;
+            Type = type;    
         }
 
         /// <summary>
@@ -29,7 +31,7 @@ namespace BomberManGame.EntityComponents
         /// </summary>
         public void onDraw()
         {
-            UIAdapter.DrawEntity(x, y, EntityType);
+            UIAdapter.Instance.DrawEntity(this);
         }
 
         /// <summary>

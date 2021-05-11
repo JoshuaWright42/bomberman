@@ -13,7 +13,7 @@ namespace BomberManGame.EntityComponents
         /// <summary>
         /// A reference to the Entity that owns this component.
         /// </summary>
-        private Entity Self { get; init; }
+        protected Entity Self { get; init; }
 
         /// <summary>
         /// Constructor. Assigns passed in Entity to Self.

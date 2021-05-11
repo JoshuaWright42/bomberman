@@ -19,11 +19,15 @@ namespace BomberManGame
         /// </summary>
         private event DrawObject Drawables;
 
+        private event DrawObject Players;
+
         /// <summary>
         /// Subscribes the Draw method of the passed in CDraw component to Drawables.
         /// </summary>
         /// <param name="sub">The Draw compoenent that wishes to subscribe.</param>
         public void Subscribe(CDraw sub) => Drawables += sub.onDraw;
+
+        public void Subscribe(CPlayer sub) => Players += sub.onDraw;
 
         /// <summary>
         /// Start a draw event. Then clears subscribers.
@@ -32,6 +36,8 @@ namespace BomberManGame
         {
             Drawables?.Invoke();
             Drawables = null;
+            Players?.Invoke();
+            UIAdapter.Instance.RefreshScreen();
         }
     }
 }

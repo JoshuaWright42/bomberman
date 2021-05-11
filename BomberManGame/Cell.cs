@@ -19,7 +19,7 @@ namespace BomberManGame
 
         public Cell(int x, int y)
         {
-            //needs implementation once Tile data type has been created
+            Data = EntityFactory.Instance.CreateEntityForMap(x, y, this);
         }
 
         /// <summary>

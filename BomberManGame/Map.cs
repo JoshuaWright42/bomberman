@@ -41,7 +41,7 @@ namespace BomberManGame
         /// Recursive method that constructs the cells for each row.
         /// When this method is complete, a single column has been
         /// fully created.
-        /// </summary>
+        /// </summary>  
         /// <param name="col">Indexer for Column</param>
         /// <param name="row">Indexer for Row</param>
         /// <param name="left">The previous Column</param>
