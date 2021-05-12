@@ -5,6 +5,8 @@ namespace BomberManGame
     public class EntityFactory
     {
         const int EXPLOSION_LENGTH = 200;
+        const float PLAYER_SPEED = 2.0f;
+        const int PLAYER_FUSE = 3000;
 
 
         private static EntityFactory _instance;
@@ -66,12 +68,33 @@ namespace BomberManGame
             return result;
         }
 
-        public Entity CreateBomb(int x, int y, int size, int fuse)
+        public Entity CreateBomb(int x, int y, int size, int fuse, CPlayer owner)
         {
             Entity result = CreateBasicEntity(x, y, EntityType.Bomb);
-            CBomb bomb = new CBomb(result, size);
+            CBomb bomb = new CBomb(result, owner, size);
             result.AddComponent<CBomb>(bomb);
             result.AddComponent<CTimer>(new CTimer(result, fuse, bomb.onExplode));
+            return result;
+        }
+
+        public Entity CreatePlayer(int num, int cellX, int cellY, float absX, float absY)
+        {
+            PlayerData data = new PlayerData
+            {
+                AbsoluteX = absX,
+                AbsoluteY = absY,
+                PlayerNum = num,
+                isDead = false,
+                BombSize = 1,
+                Speed = PLAYER_SPEED,
+                BombFuse = PLAYER_FUSE,
+                BombCount = 1
+            };
+
+            Entity result = new Entity();
+            result.AddComponent<CLocation>(new CLocation(result, Map.Instance[cellX, cellY]));
+            result.AddComponent<CPlayer>(new CPlayer(result, data));
+
             return result;
         }
 

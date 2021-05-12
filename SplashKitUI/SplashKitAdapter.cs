@@ -8,17 +8,18 @@ namespace SplashKitUI
 {
     public class SplashKitAdapter: UIAdapter
     {
-        const int BMP_SIZE = 512;
-
-        //Controls<KeyCode> p1 = new Controls<KeyCode>();
         Dictionary<ControlType, KeyCode>[] _controls;
-        //private DrawingOptions opts;
 
         public SplashKitAdapter()
         {
-            _controls = new Dictionary<ControlType, KeyCode>[0];
-            //opts = SplashKit.OptionScaleBmp(CELL_WIDTH / BMP_SIZE, CELL_HEIGHT / BMP_SIZE);
-            
+            _controls = new Dictionary<ControlType, KeyCode>[1];
+            _controls[0] = new Dictionary<ControlType, KeyCode>();
+            _controls[0].Add(ControlType.Left, KeyCode.LeftKey);
+            _controls[0].Add(ControlType.Right, KeyCode.RightKey);
+            _controls[0].Add(ControlType.Up, KeyCode.UpKey);
+            _controls[0].Add(ControlType.Down, KeyCode.DownKey);
+            _controls[0].Add(ControlType.Place, KeyCode.ZKey);
+
         }
 
         public override void DrawEntity(CDraw toDraw) //draws regular entities (not players)
@@ -61,6 +62,7 @@ namespace SplashKitUI
         public override void OpenGameWindow(int cols, int rows)
         {
             new Window("BomberMan - Wright Edition", cols * CELL_WIDTH, rows * CELL_HEIGHT);
+            SplashKit.ClearScreen(Color.Gray);
         }
 
         public override void ProcessInput()
@@ -80,7 +82,7 @@ namespace SplashKitUI
 
         public override void RefreshScreen()
         {
-            SplashKit.RefreshScreen();
+            SplashKit.RefreshScreen(60);
         }
     }
 }

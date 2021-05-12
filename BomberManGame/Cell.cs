@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using BomberManGame.EntityComponents;
 
 namespace BomberManGame
 {
@@ -11,7 +12,20 @@ namespace BomberManGame
     /// </summary>
     public class Cell : IEnumerable<Cell>
     {
-        public ITile Data { get; set; }
+        private ITile _data;
+        public ITile Data
+        {
+            get
+            {
+                return _data;
+            }
+            set
+            {
+                ((Component)_data)?.Self.Destroy();
+                _data = value;
+            }
+        }
+
         public Cell Left { get; set; }
         public Cell Right { get; set; }
         public Cell Up { get; set; }

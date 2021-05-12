@@ -4,9 +4,9 @@ namespace BomberManGame.EntityComponents
 {
     public record PlayerData
     {
-        public float AbsoluteX, AbsoluteY;
+        public float AbsoluteX, AbsoluteY, Speed;
         public bool isDead;
-        public int Speed, BombSize, BombFuse;
+        public int BombSize, BombFuse, BombCount;
         public int PlayerNum;
     }
 
@@ -28,7 +28,14 @@ namespace BomberManGame.EntityComponents
 
         public void onKeyboardInput(int plrNum, ControlType type)
         {
-            throw new NotImplementedException();
+            if (plrNum == Data.PlayerNum)
+            {
+                if ((int)type < 4) Move(type);
+                switch(type)
+                {
+                    case ControlType.Place: PlaceBomb(); break;
+                }
+            }
         }
 
         private void Move(ControlType type)
@@ -43,25 +50,54 @@ namespace BomberManGame.EntityComponents
                     case ControlType.Down: Data.AbsoluteY += Data.Speed; break;
                 }
             }
+            else if (Self.GetComponent<CLocation>().Location[(int)type]?.Data is not ISolid)
+            {
+                int[] cellPos = GetCellPos();
+                if ((int)type >= 2)
+                {
+                    CentrePosition(ref Data.AbsoluteX, cellPos[0] * UIAdapter.CELL_WIDTH, type);
+                }
+                else
+                {
+                    CentrePosition(ref Data.AbsoluteY, cellPos[1] * UIAdapter.CELL_HEIGHT, type);
+                }
+                
+            }
             CheckCollisions();
             UpdatePlayerCell();
+        }
+
+        private void CentrePosition(ref float coord, int cellPos, ControlType type)
+        {
+            if (coord < cellPos)
+            {
+                coord += Data.Speed;
+            }
+            else
+            {
+                coord -= Data.Speed;
+            }
         }
 
         private void CheckCollisions()
         {
             foreach (Cell c1 in Self.GetComponent<CLocation>().Location)
             {
-                if (c1.Data is IAffectPlayer && UIAdapter.Instance.HasCollided(this, c1.Data))
+                if (c1 != null)
                 {
-                    ((IAffectPlayer)c1).ApplyEffect(this);
-                }
-                foreach (Cell c2 in c1)
-                {
-                    if (c2.Data is IAffectPlayer && UIAdapter.Instance.HasCollided(this, c2.Data))
+                    //((Component)c1.Data).GetComponent<CDraw>().Subscribe();
+                    if (c1.Data is IAffectPlayer && UIAdapter.Instance.HasCollided(this, c1.Data))
                     {
-                        ((IAffectPlayer)c2).ApplyEffect(this);
+                        ((IAffectPlayer)c1).ApplyEffect(this);
                     }
-
+                    foreach (Cell c2 in c1)
+                    {
+                        //((Component)c2?.Data)?.GetComponent<CDraw>().Subscribe();
+                        if (c2?.Data is IAffectPlayer && UIAdapter.Instance.HasCollided(this, c2.Data))
+                        {
+                            ((IAffectPlayer)c2).ApplyEffect(this);
+                        }
+                    }
                 }
             }
         }
@@ -69,17 +105,21 @@ namespace BomberManGame.EntityComponents
         private bool HasCollidedWithSolid(ControlType type)
         {
             Cell nextCell = Self.GetComponent<CLocation>().Location[(int)type];
-            if (nextCell.Data is ISolid && UIAdapter.Instance.HasCollided(this, nextCell.Data))
+            if (nextCell != null)
             {
-                return true;
-            }
-            else
-            {
-                foreach (Cell c in nextCell)
+                if (nextCell.Data is ISolid && UIAdapter.Instance.HasCollided(this, nextCell.Data))
                 {
-                    if (c.Data is ISolid && UIAdapter.Instance.HasCollided(this, c.Data))
+                    return true;
+                }
+                else
+                {
+                    foreach (Cell c in nextCell)
                     {
-                        return true;
+                        if (c?.Data is ISolid && UIAdapter.Instance.HasCollided(this, c.Data))
+                        {
+                            return true;
+                        }
+
                     }
                 }
             }
@@ -89,23 +129,31 @@ namespace BomberManGame.EntityComponents
         private void PlaceBomb()
         {
             Cell loc = GetComponent<CLocation>().Location;
-            if (loc.Data is not CBomb)
+            if (loc.Data is not CBomb && Data.BombCount > 0)
             {
-                CDraw pos = ((Entity)loc.Data).GetComponent<CDraw>();
-                loc.Data = EntityFactory.Instance.CreateBomb(pos.X, pos.Y, Data.BombSize, Data.BombFuse).GetComponent<CBomb>();
+                Data.BombCount--;
+                CDraw pos = ((Component)loc.Data).GetComponent<CDraw>();
+                loc.Data = EntityFactory.Instance.CreateBomb(pos.X, pos.Y, Data.BombSize, Data.BombFuse, this).GetComponent<CBomb>();
             }
             
         }
 
         private void UpdatePlayerCell()
         {
+            int[] cellLoc = GetCellPos();
+            GetComponent<CLocation>().Location = Map.Instance[cellLoc[0], cellLoc[1]];
+        }
+
+        private int[] GetCellPos()
+        {
+            int[] result = new int[2];
             int w = UIAdapter.CELL_WIDTH;
             int h = UIAdapter.CELL_HEIGHT;
             float plrX = Data.AbsoluteX + (w / 2);
             float plrY = Data.AbsoluteY + (h / 2);
-            int cellX = (int)Math.Round(plrX / w);
-            int cellY = (int)Math.Round(plrY / h);
-            GetComponent<CLocation>().Location = Map.Instance[cellX, cellY];
+            result[0] = (int)(plrX / w);
+            result[1] = (int)(plrY / h);
+            return result;
         }
     }
 }

@@ -21,6 +21,14 @@ namespace BomberManGame.EntityComponents
         /// </summary>
         internal Entity() => Components = new Dictionary<Type, Component>();
 
+        public void Destroy()
+        {
+            foreach (Component c in Components.Values)
+            {
+                c.Destroy();
+            }
+        }
+
         /// <summary>
         /// Adds a new component to the Entity.
         /// </summary>
@@ -34,5 +42,9 @@ namespace BomberManGame.EntityComponents
         /// <typeparam name="T">The type of component desired.</typeparam>
         /// <returns>The component itself.</returns>
         public T GetComponent<T>() where T: Component => (T)Components[typeof(T)];
+
+        public bool HasComponent<T>() where T : Component => Components.ContainsKey(typeof(T));
+
+        public void RemoveComponent<T>() where T : Component => Components.Remove(typeof(T));
     }
 }

@@ -28,5 +28,10 @@ namespace BomberManGame.EntityComponents
             Timer.AutoReset = false; //will stop after one interval has passed
             Timer.Start(); //starts timer
         }
+
+        public void Stop()
+        {
+            Timer.Stop();
+        }
     }
 }

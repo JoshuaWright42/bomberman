@@ -59,4 +59,8 @@ Global
 		{630309CA-4829-43C4-8FE2-75BC8738AE05}.Release|x86.ActiveCfg = Release|Any CPU
 		{630309CA-4829-43C4-8FE2-75BC8738AE05}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.VersionControlPolicy = $1
+	EndGlobalSection
 EndGlobal

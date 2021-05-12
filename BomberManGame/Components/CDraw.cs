@@ -35,9 +35,16 @@ namespace BomberManGame.EntityComponents
             UIAdapter.Instance.DrawEntity(this);
         }
 
+        public override void Destroy()
+        {
+            Unsubscribe();
+        }
+
         /// <summary>
         /// Subscribe this specific Draw Component to the Draw Event.
         /// </summary>
         public void Subscribe() => EventPublisher.Instance.GetEvent<EDraw>().Subscribe(this);
+
+        public void Unsubscribe() => EventPublisher.Instance.GetEvent<EDraw>().Unsubscribe(this);
     }
 }

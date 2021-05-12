@@ -13,7 +13,7 @@ namespace BomberManGame.EntityComponents
         /// <summary>
         /// A reference to the Entity that owns this component.
         /// </summary>
-        protected Entity Self { get; init; }
+        public Entity Self { get; init; }
 
         /// <summary>
         /// Constructor. Assigns passed in Entity to Self.
@@ -21,11 +21,17 @@ namespace BomberManGame.EntityComponents
         /// <param name="self">A reference to the Entity that owns this component.</param>
         internal Component(Entity self) => Self = self;
 
+        public virtual void Destroy() { }
+
         /// <summary>
         /// Wrapper for GetComponent method in Entity
         /// </summary>
         /// <typeparam name="T">Desired component to fetch.</typeparam>
         /// <returns>The desired component.</returns>
         public T GetComponent<T>() where T : Component => Self.GetComponent<T>();
+
+        public bool HasComponent<T>() where T : Component => Self.HasComponent<T>();
+
+        public void RemoveComponent<T>() where T : Component => Self.RemoveComponent<T>();
     }
 }

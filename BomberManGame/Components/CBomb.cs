@@ -14,15 +14,19 @@ namespace BomberManGame.EntityComponents
         /// <summary>
         /// The size/radius of the explosion when detonated.
         /// </summary>
-        private int Radius { get; set; }
+        private int Radius { get; init; }
+        private CPlayer Owner { get; init; }
 
         /// <summary>
         /// Constructor. Initialises the radius.
         /// </summary>
         /// <param name="self">The Entity this component belongs too.</param>
         /// <param name="rad">The size/radius of the explosion when detonated.</param>
-        internal CBomb(Entity self, int rad): base (self) => Radius = rad;
-
+        internal CBomb(Entity self, CPlayer owner, int rad) : base(self)
+        {
+            Owner = owner;
+            Radius = rad;
+        }
         /// <summary>
         /// Event handler that is invoked once the bomb's "fuse" has run out.
         /// Instructs bomb to Explode.
@@ -42,29 +46,28 @@ namespace BomberManGame.EntityComponents
         /// <param name="dir">Direction the explosion is travelling. -1 if at epicentre.</param>
         public void Explode(int size, int dir = -1)
         {
+            Owner.Data.BombCount++;
+            GetComponent<CTimer>().Stop();
             //assign cell new explosion entity
             CDraw pos = GetComponent<CDraw>();
             Entity exp = EntityFactory.Instance.CreateExplosion(pos.X, pos.Y);
             GetComponent<CLocation>().Location.Data = (ITile)exp.GetComponent<CExplosion>();
 
-            if (size > 0) // has the explosion finished?
-            {
-                Cell location = GetComponent<CLocation>().Location; //get current cell
+            Cell location = GetComponent<CLocation>().Location; //get current cell
 
-                //Send exlosion in every direction
-                foreach (Cell c in location)
+            //Send exlosion in every direction
+            foreach (Cell c in location)
+            {
+                if (location.IndexOf(c) == dir) //bomb was triggered by another bomb
                 {
-                    if (location.IndexOf(c) == dir) //bomb was triggered by another bomb
-                    {
-                        //Syntax for '?' operator:
-                        // (condition) ? (result if true): (result if false)
-                        //Passes on the bigger of the two explosions in this direction.
-                        c.Data.Explode((size > Radius ? size : Radius) - 1);
-                    }
-                    else
-                    {
-                        c.Data.Explode(Radius - 1); //Sends explosion of the bombs size in this direciton
-                    }
+                    //Syntax for '?' operator:
+                    // (condition) ? (result if true): (result if false)
+                    //Passes on the bigger of the two explosions in this direction.
+                    c.Data.Explode((size > Radius ? size : Radius) - 1);
+                }
+                else
+                {
+                    c.Data.Explode(Radius - 1); //Sends explosion of the bombs size in this direciton
                 }
             }
         }

@@ -22,6 +22,7 @@ namespace BomberManGame
             //assign cell new explosion entity
             Component self = (Component)this;
             CDraw pos = self.GetComponent<CDraw>();
+            if (self.HasComponent<CTimer>()) self.GetComponent<CTimer>().Stop();
             Entity exp = EntityFactory.Instance.CreateExplosion(pos.X, pos.Y);
             self.GetComponent<CLocation>().Location.Data = (ITile)exp.GetComponent<CExplosion>();
 

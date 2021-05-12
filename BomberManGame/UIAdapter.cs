@@ -9,7 +9,8 @@ namespace BomberManGame
         Bomb,
         Player,
         Air,
-        Brick
+        Brick,
+        Crate
     }
 
     public enum ControlType
@@ -21,19 +22,10 @@ namespace BomberManGame
         Place
     }
 
-    /*public record Controls<T>
-    {
-        T Left;
-        T Right;
-        T Up;
-        T Down;
-        T Place;
-    }*/
-
     public abstract class UIAdapter
     {
-        public const int CELL_WIDTH = 30;
-        public const int CELL_HEIGHT = 30;
+        public const int CELL_WIDTH = 32;
+        public const int CELL_HEIGHT = 32;
 
 
 
@@ -61,5 +53,6 @@ namespace BomberManGame
         public abstract void LoadAssets();
         public abstract void OpenGameWindow(int cols, int rows);
         public abstract bool GameExited();
+        //public abstract void DrawDebug(Entity plr);
     }
 }

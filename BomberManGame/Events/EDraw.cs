@@ -27,6 +27,8 @@ namespace BomberManGame
         /// <param name="sub">The Draw compoenent that wishes to subscribe.</param>
         public void Subscribe(CDraw sub) => Drawables += sub.onDraw;
 
+        public void Unsubscribe(CDraw sub) => Drawables -= sub.onDraw;
+
         public void Subscribe(CPlayer sub) => Players += sub.onDraw;
 
         /// <summary>
@@ -35,7 +37,7 @@ namespace BomberManGame
         public void Start()
         {
             Drawables?.Invoke();
-            Drawables = null;
+            //Drawables = null;
             Players?.Invoke();
             UIAdapter.Instance.RefreshScreen();
         }
