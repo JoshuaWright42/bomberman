@@ -2,16 +2,16 @@
 
 namespace BomberManGame.EntityComponents
 {
-    public record PlayerData
-    {
-        public float AbsoluteX, AbsoluteY, Speed;
-        public bool isDead;
-        public int BombSize, BombFuse, BombCount;
-        public int PlayerNum;
-    }
-
     public class CPlayer: Component
     {
+        public record PlayerData
+        {
+            public float AbsoluteX, AbsoluteY, Speed;
+            public bool isDead;
+            public int BombSize, BombFuse, BombCount;
+            public int PlayerNum;
+        }
+
         public PlayerData Data { get; set; }
 
         public CPlayer(Entity self, PlayerData data): base(self)
@@ -128,11 +128,11 @@ namespace BomberManGame.EntityComponents
 
         private void PlaceBomb()
         {
-            Cell loc = GetComponent<CLocation>().Location;
+            Cell loc = Self.GetComponent<CLocation>().Location;
             if (loc.Data is not CBomb && Data.BombCount > 0)
             {
                 Data.BombCount--;
-                CDraw pos = ((Component)loc.Data).GetComponent<CDraw>();
+                CDraw pos = ((Component)loc.Data).Self.GetComponent<CDraw>();
                 loc.Data = EntityFactory.Instance.CreateBomb(pos.X, pos.Y, Data.BombSize, Data.BombFuse, this).GetComponent<CBomb>();
             }
             
@@ -141,7 +141,7 @@ namespace BomberManGame.EntityComponents
         private void UpdatePlayerCell()
         {
             int[] cellLoc = GetCellPos();
-            GetComponent<CLocation>().Location = Map.Instance[cellLoc[0], cellLoc[1]];
+            Self.GetComponent<CLocation>().Location = Map.Instance[cellLoc[0], cellLoc[1]];
         }
 
         private int[] GetCellPos()

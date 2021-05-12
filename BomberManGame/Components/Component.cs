@@ -22,16 +22,5 @@ namespace BomberManGame.EntityComponents
         internal Component(Entity self) => Self = self;
 
         public virtual void Destroy() { }
-
-        /// <summary>
-        /// Wrapper for GetComponent method in Entity
-        /// </summary>
-        /// <typeparam name="T">Desired component to fetch.</typeparam>
-        /// <returns>The desired component.</returns>
-        public T GetComponent<T>() where T : Component => Self.GetComponent<T>();
-
-        public bool HasComponent<T>() where T : Component => Self.HasComponent<T>();
-
-        public void RemoveComponent<T>() where T : Component => Self.RemoveComponent<T>();
     }
 }

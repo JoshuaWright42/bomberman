@@ -86,7 +86,7 @@ namespace NUnitTests
         public void TestIndexer(int x, int y)
         {
             Cell actual = Map.Instance[x, y];
-            CDraw actualPos = (actual.Data as Component).GetComponent<CDraw>();
+            CDraw actualPos = (actual.Data as Component).Self.GetComponent<CDraw>();
             Assert.AreEqual(x, actualPos.X, "Cell x value did not match given index!");
             Assert.AreEqual(y, actualPos.Y, "Cell y value did not match given index!");
         }

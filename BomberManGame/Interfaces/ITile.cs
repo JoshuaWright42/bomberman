@@ -20,14 +20,14 @@ namespace BomberManGame
         public void Explode(int size, int dir = -1)
         {
             //assign cell new explosion entity
-            Component self = (Component)this;
-            CDraw pos = self.GetComponent<CDraw>();
-            if (self.HasComponent<CTimer>()) self.GetComponent<CTimer>().Stop();
+            Component compSelf = (Component)this;
+            CDraw pos = compSelf.Self.GetComponent<CDraw>();
+            if (compSelf.Self.HasComponent<CTimer>()) compSelf.Self.GetComponent<CTimer>().Stop();
             Entity exp = EntityFactory.Instance.CreateExplosion(pos.X, pos.Y);
-            self.GetComponent<CLocation>().Location.Data = (ITile)exp.GetComponent<CExplosion>();
+            compSelf.Self.GetComponent<CLocation>().Location.Data = (ITile)exp.GetComponent<CExplosion>();
 
             //pass explosion onto next cell
-            if (size > 0) self.GetComponent<CLocation>().Location[dir].Data.Explode(size - 1, dir);
+            if (size > 0) compSelf.Self.GetComponent<CLocation>().Location[dir].Data.Explode(size - 1, dir);
         }
     }
 }

@@ -47,13 +47,13 @@ namespace BomberManGame.EntityComponents
         public void Explode(int size, int dir = -1)
         {
             Owner.Data.BombCount++;
-            GetComponent<CTimer>().Stop();
+            Self.GetComponent<CTimer>().Stop();
             //assign cell new explosion entity
-            CDraw pos = GetComponent<CDraw>();
+            CDraw pos = Self.GetComponent<CDraw>();
             Entity exp = EntityFactory.Instance.CreateExplosion(pos.X, pos.Y);
-            GetComponent<CLocation>().Location.Data = (ITile)exp.GetComponent<CExplosion>();
+            Self.GetComponent<CLocation>().Location.Data = (ITile)exp.GetComponent<CExplosion>();
 
-            Cell location = GetComponent<CLocation>().Location; //get current cell
+            Cell location = Self.GetComponent<CLocation>().Location; //get current cell
 
             //Send exlosion in every direction
             foreach (Cell c in location)

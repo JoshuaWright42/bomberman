@@ -42,7 +42,7 @@ namespace SplashKitUI
 
         public override bool HasCollided(CPlayer plr, ITile tile)
         {
-            CDraw tileComp = ((Component)tile).GetComponent<CDraw>();
+            CDraw tileComp = ((Component)tile).Self.GetComponent<CDraw>();
 
             return SplashKit.BitmapCollision(
                 SplashKit.BitmapNamed($"Player{plr.Data.PlayerNum}"),

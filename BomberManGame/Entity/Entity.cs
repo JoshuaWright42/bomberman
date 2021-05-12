@@ -45,6 +45,6 @@ namespace BomberManGame.EntityComponents
 
         public bool HasComponent<T>() where T : Component => Components.ContainsKey(typeof(T));
 
-        public void RemoveComponent<T>() where T : Component => Components.Remove(typeof(T));
+        //public void RemoveComponent<T>() where T : Component => Components.Remove(typeof(T));
     }
 }

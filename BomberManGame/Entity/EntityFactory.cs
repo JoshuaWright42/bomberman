@@ -1,5 +1,6 @@
 ﻿using System;
 using BomberManGame.EntityComponents;
+
 namespace BomberManGame
 {
     public class EntityFactory
@@ -79,7 +80,7 @@ namespace BomberManGame
 
         public Entity CreatePlayer(int num, int cellX, int cellY, float absX, float absY)
         {
-            PlayerData data = new PlayerData
+            CPlayer.PlayerData data = new CPlayer.PlayerData
             {
                 AbsoluteX = absX,
                 AbsoluteY = absY,

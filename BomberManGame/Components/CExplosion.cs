@@ -25,9 +25,9 @@ namespace BomberManGame.EntityComponents
         public void onComplete(object source, EventArgs e)
         {
             //assign cell new air entity
-            CDraw pos = GetComponent<CDraw>();
+            CDraw pos = Self.GetComponent<CDraw>();
             Entity air = EntityFactory.Instance.CreateAir(pos.X, pos.Y);
-            GetComponent<CLocation>().Location.Data = (ITile)air.GetComponent<CAir>();
+            Self.GetComponent<CLocation>().Location.Data = (ITile)air.GetComponent<CAir>();
         }
     }
 }
