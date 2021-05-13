@@ -40,17 +40,18 @@ namespace SplashKitUI
             return SplashKit.WindowCloseRequested("BomberMan - Wright Edition");
         }
 
-        public override bool HasCollided(CPlayer plr, ITile tile)
+        public override bool HasCollided(CPlayer plr, Component comp)
         {
-            CDraw tileComp = ((Component)tile).Self.GetComponent<CDraw>();
+            if (!comp.Self.HasComponent<CDraw>()) return false;
+            CDraw toCheck = comp.Self.GetComponent<CDraw>();
 
             return SplashKit.BitmapCollision(
                 SplashKit.BitmapNamed($"Player{plr.Data.PlayerNum}"),
                 plr.Data.AbsoluteX,
                 plr.Data.AbsoluteY,
-                SplashKit.BitmapNamed(tileComp.Type.ToString()),
-                tileComp.X * CELL_WIDTH,
-                tileComp.Y * CELL_HEIGHT
+                SplashKit.BitmapNamed(toCheck.Type.ToString()),
+                toCheck.X * CELL_WIDTH,
+                toCheck.Y * CELL_HEIGHT
                 );
         }
 

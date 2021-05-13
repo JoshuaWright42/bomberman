@@ -5,6 +5,6 @@ namespace BomberManGame
 {
     public interface IAffectPlayer
     {
-        public void ApplyEffect(CPlayer player);
+        public void onCollide(CPlayer plr);
     }
 }

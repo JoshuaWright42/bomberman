@@ -66,6 +66,7 @@ namespace BomberManGame
         {
             Entity result = CreateBasicEntity(x, y, EntityType.Brick);
             result.AddComponent<CBrick>(new CBrick(result));
+            result.AddComponent<CSolid>(new CSolid(result));
             return result;
         }
 
@@ -75,6 +76,7 @@ namespace BomberManGame
             CBomb bomb = new CBomb(result, owner, size);
             result.AddComponent<CBomb>(bomb);
             result.AddComponent<CTimer>(new CTimer(result, fuse, bomb.onExplode));
+            result.AddComponent<CSolid>(new CSolid(result));
             return result;
         }
 
@@ -111,6 +113,7 @@ namespace BomberManGame
             {
                 result = new CBrick(newEnt);    
                 newEnt.AddComponent<CBrick>(result);
+                newEnt.AddComponent<CSolid>(new CSolid(newEnt));
                 type = EntityType.Brick;
             }
             else //air blocks

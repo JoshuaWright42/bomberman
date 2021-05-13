@@ -3,25 +3,6 @@ using BomberManGame.EntityComponents;
 
 namespace BomberManGame
 {
-    public enum EntityType
-    {
-        Explosion,
-        Bomb,
-        Player,
-        Air,
-        Brick,
-        Crate
-    }
-
-    public enum ControlType
-    {
-        Left,
-        Right,
-        Up,
-        Down,
-        Place
-    }
-
     public abstract class UIAdapter
     {
         public const int CELL_WIDTH = 32;
@@ -49,7 +30,7 @@ namespace BomberManGame
         public abstract void DrawEntity(float x, float y, int playerNum);
         public abstract void ProcessInput();
         public abstract void RefreshScreen();
-        public abstract bool HasCollided(CPlayer plr, ITile tile);
+        public abstract bool HasCollided(CPlayer plr, Component comp);
         public abstract void LoadAssets();
         public abstract void OpenGameWindow(int cols, int rows);
         public abstract bool GameExited();

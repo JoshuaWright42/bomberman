@@ -20,6 +20,7 @@ namespace BomberManGame
             do
             {
                 UIAdapter.Instance.ProcessInput();
+                EventPublisher.Instance.GetEvent<ECollisions>().CheckCollisions();
                 EventPublisher.Instance.GetEvent<EDraw>().Start();
                 //UIAdapter.Instance.DrawDebug(plr);
             } while (!UIAdapter.Instance.GameExited());

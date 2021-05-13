@@ -31,6 +31,8 @@ namespace BomberManGame
 
         public void Subscribe(CPlayer sub) => Players += sub.onDraw;
 
+        public void Unsubscribe(CPlayer sub) => Players -= sub.onDraw;
+
         /// <summary>
         /// Start a draw event. Then clears subscribers.
         /// </summary>

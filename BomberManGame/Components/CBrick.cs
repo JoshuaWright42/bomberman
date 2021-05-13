@@ -5,7 +5,7 @@ namespace BomberManGame.EntityComponents
     /// Brick Component. Is a type of tile. Represents a solid wall/cell.
     /// Players and explosions cannot pass through this.
     /// </summary>
-    public class CBrick: Component, ITile, ISolid
+    public class CBrick: Component, ITile
     {
         /// <summary>
         /// Default component constructor.

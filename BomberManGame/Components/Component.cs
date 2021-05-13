@@ -19,8 +19,13 @@ namespace BomberManGame.EntityComponents
         /// Constructor. Assigns passed in Entity to Self.
         /// </summary>
         /// <param name="self">A reference to the Entity that owns this component.</param>
-        internal Component(Entity self) => Self = self;
+        internal Component(Entity self)
+        {
+            Self = self;
+        }
 
-        public virtual void Destroy() { }
+        public virtual void Destroy()
+        {
+        }
     }
 }

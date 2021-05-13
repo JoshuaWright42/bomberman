@@ -24,8 +24,8 @@ namespace BomberManGame
         /// </summary>
         private EventPublisher()
         {
-            Register(typeof(EDraw), new EDraw());
-            Register(typeof(EInput), new EInput());
+            //Register(typeof(EDraw), new EDraw());
+            //Register(typeof(EInput), new EInput());
         }
 
         /// <summary>
@@ -61,6 +61,13 @@ namespace BomberManGame
         /// </summary>
         /// <typeparam name="T">The type of desired event.</typeparam>
         /// <returns>The desired event.</returns>
-        public T GetEvent<T>() where T: Event => (T)_publishers[typeof(T)];
+        public T GetEvent<T>() where T : Event
+        {
+            if (!_publishers.ContainsKey(typeof(T)))
+            {
+                Activator.CreateInstance<T>();
+            }
+            return (T)_publishers[typeof(T)];
+        }
     }
 }
