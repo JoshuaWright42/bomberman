@@ -5,7 +5,7 @@ namespace BomberManGame.EntityComponents
     {
         public CSolid(Entity self): base (self)
         {
-            EventPublisher.Instance.GetEvent<ECollisions>().Subscribe(onPlayerMove);
+            EventPublisher.Instance.GetEvent<EMove>().Subscribe(onPlayerMove);
         }
 
         public void onPlayerMove(CPlayer sender, Direction dir, ref bool success)
@@ -35,7 +35,7 @@ namespace BomberManGame.EntityComponents
 
         public override void Destroy()
         {
-            EventPublisher.Instance.GetEvent<ECollisions>().UnSubscribe(onPlayerMove);
+            EventPublisher.Instance.GetEvent<EMove>().UnSubscribe(onPlayerMove);
         }
 
         private bool CheckVerticalCells(CPlayer plr, Cell centre, Cell self)

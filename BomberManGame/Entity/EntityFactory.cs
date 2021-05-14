@@ -1,15 +1,12 @@
 ﻿using System;
+using System.Timers;
+using System.Xml;
 using BomberManGame.EntityComponents;
 
 namespace BomberManGame
 {
     public class EntityFactory
     {
-        const int EXPLOSION_LENGTH = 200;
-        const float PLAYER_SPEED = 2.0f;
-        const int PLAYER_FUSE = 3000;
-
-
         private static EntityFactory _instance;
 
         private EntityFactory() { }
@@ -29,7 +26,7 @@ namespace BomberManGame
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
-        public Entity CreateExplosion(int x, int y)
+        public Entity CreateExplosion(int x, int y, ElapsedEventHandler handler = null)
         {
             //Create basic Entity
             Entity result = CreateBasicEntity(x, y, EntityType.Explosion);
@@ -37,7 +34,8 @@ namespace BomberManGame
             //Build explosion entity
             CExplosion exp = new CExplosion(result);
             result.AddComponent<CExplosion>(exp);
-            result.AddComponent<CTimer>(new CTimer(result, EXPLOSION_LENGTH, exp.onComplete));
+            if (handler == null) handler = exp.onComplete;
+            result.AddComponent<CTimer>(new CTimer(result, Constants.EXPLOSION_LENGTH, handler));
 
             //return
             return result;
@@ -89,8 +87,8 @@ namespace BomberManGame
                 PlayerNum = num,
                 isDead = false,
                 BombSize = 1,
-                Speed = PLAYER_SPEED,
-                BombFuse = PLAYER_FUSE,
+                Speed = Constants.PLAYER_SPEED,
+                BombFuse = Constants.PLAYER_FUSE,
                 BombCount = 1
             };
 
@@ -98,6 +96,37 @@ namespace BomberManGame
             result.AddComponent<CLocation>(new CLocation(result, Map.Instance[cellX, cellY]));
             result.AddComponent<CPlayer>(new CPlayer(result, data));
 
+            return result;
+        }
+
+        public void CreatePlayersFromXML()
+        {
+            XmlNodeList players = UIAdapter.Instance.Config.GetElementsByTagName("player");
+            foreach(XmlNode player in players)
+            {
+                int playerNum = Convert.ToInt32(player.Attributes["id"].Value);
+                XmlNode spawnCell = player.SelectSingleNode("spawn").SelectSingleNode("cell");
+                int cellX = Convert.ToInt32(spawnCell.Attributes["x"].Value);
+                int cellY = Convert.ToInt32(spawnCell.Attributes["y"].Value);
+                float absX = cellX * Constants.CELL_WIDTH;
+                float absY = cellY * Constants.CELL_HEIGHT;
+                CreatePlayer(playerNum, cellX, cellY, absX, absY);
+
+                XmlNodeList spawnCells = player.SelectSingleNode("spawn").SelectNodes("cell");
+                foreach (XmlNode cell in spawnCells)
+                {
+                    int x = Convert.ToInt32(cell.Attributes["x"].Value);
+                    int y = Convert.ToInt32(cell.Attributes["y"].Value);
+                    Map.Instance[x, y].Data = CreateAir(x, y).GetComponent<CAir>();
+                }
+            }
+        }
+
+        public Entity CreateCrate(int x, int y)
+        {
+            Entity result = CreateBasicEntity(x, y, EntityType.Crate);
+            result.AddComponent<CCrate>(new CCrate(result));
+            result.AddComponent<CSolid>(new CSolid(result));
             return result;
         }
 
@@ -118,14 +147,29 @@ namespace BomberManGame
             }
             else //air blocks
             {
-                result = new CAir(newEnt);
-                newEnt.AddComponent<CAir>(result);
-                type = EntityType.Air;
+                if (Game.RNG.NextDouble() > Constants.CRATE_CHANCE)
+                {
+                    result = new CAir(newEnt);
+                    newEnt.AddComponent<CAir>(result);
+                    type = EntityType.Air;
+                }
+                else
+                {
+                    result = new CCrate(newEnt);
+                    newEnt.AddComponent<CCrate>(result);
+                    newEnt.AddComponent<CSolid>(new CSolid(newEnt));
+                    type = EntityType.Crate;
+                }
             }
             newEnt.AddComponent<CDraw>(new CDraw(newEnt, x, y, type));
             newEnt.AddComponent<CLocation>(new CLocation(newEnt, loc));
 
             return (ITile)result;
+        }
+
+        public ITile CreatePowerUp(int x, int y)
+        {
+            return CreateAir(x, y).GetComponent<CAir>(); //replace later
         }
 
         private Entity CreateBasicEntity(int x, int y, EntityType type)

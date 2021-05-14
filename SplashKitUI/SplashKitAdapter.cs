@@ -3,29 +3,40 @@ using BomberManGame;
 using BomberManGame.EntityComponents;
 using SplashKitSDK;
 using System.Collections.Generic;
+using System.Xml;
 
 namespace SplashKitUI
 {
     public class SplashKitAdapter: UIAdapter
     {
         Dictionary<ControlType, KeyCode>[] _controls;
+        XmlDocument _config;
 
         public SplashKitAdapter()
         {
-            _controls = new Dictionary<ControlType, KeyCode>[1];
-            _controls[0] = new Dictionary<ControlType, KeyCode>();
-            _controls[0].Add(ControlType.Left, KeyCode.LeftKey);
-            _controls[0].Add(ControlType.Right, KeyCode.RightKey);
-            _controls[0].Add(ControlType.Up, KeyCode.UpKey);
-            _controls[0].Add(ControlType.Down, KeyCode.DownKey);
-            _controls[0].Add(ControlType.Place, KeyCode.ZKey);
-
+            _config = new XmlDocument();
+            _config.Load("config.xml");
+            int numPlayers = Convert.ToInt32(_config.GetElementById("players").Attributes["num"].Value);
+            _controls = new Dictionary<ControlType, KeyCode>[numPlayers];
+            for (int i = 0; i < _controls.Length; i++)
+            {
+                _controls[i] = new Dictionary<ControlType, KeyCode>();
+                XmlNodeList controls = _config.GetElementById(i.ToString()).GetElementsByTagName("control");
+                foreach (XmlNode control in controls)
+                {
+                    ControlType type = Enum.Parse<ControlType>(control.Attributes["type"].Value);
+                    KeyCode key = Enum.Parse<KeyCode>(control.Attributes["key"].Value);
+                    _controls[i].Add(type, key);
+                }
+            }
         }
+
+        public override XmlDocument Config => _config;
 
         public override void DrawEntity(CDraw toDraw) //draws regular entities (not players)
         {
-            float absX = toDraw.X * CELL_WIDTH;
-            float absY = toDraw.Y * CELL_HEIGHT;
+            float absX = toDraw.X * Constants.CELL_WIDTH;
+            float absY = toDraw.Y * Constants.CELL_HEIGHT;
             SplashKit.DrawBitmap(SplashKit.BitmapNamed("Air"), absX, absY);
             SplashKit.DrawBitmap(SplashKit.BitmapNamed(toDraw.Type.ToString()), absX, absY);
         }
@@ -50,8 +61,8 @@ namespace SplashKitUI
                 plr.Data.AbsoluteX,
                 plr.Data.AbsoluteY,
                 SplashKit.BitmapNamed(toCheck.Type.ToString()),
-                toCheck.X * CELL_WIDTH,
-                toCheck.Y * CELL_HEIGHT
+                toCheck.X * Constants.CELL_WIDTH,
+                toCheck.Y * Constants.CELL_HEIGHT
                 );
         }
 
@@ -62,7 +73,7 @@ namespace SplashKitUI
 
         public override void OpenGameWindow(int cols, int rows)
         {
-            new Window("BomberMan - Wright Edition", cols * CELL_WIDTH, rows * CELL_HEIGHT);
+            new Window("BomberMan - Wright Edition", cols * Constants.CELL_WIDTH, rows * Constants.CELL_HEIGHT);
             SplashKit.ClearScreen(Color.Gray);
         }
 

@@ -1,14 +1,13 @@
 ﻿using System;
+using System.Text.Json;
 using BomberManGame.EntityComponents;
+using System.Xml;
 
 namespace BomberManGame
 {
     public abstract class UIAdapter
     {
-        public const int CELL_WIDTH = 32;
-        public const int CELL_HEIGHT = 32;
-
-
+        public abstract XmlDocument Config { get; }
 
         private static UIAdapter _instance;
         protected UIAdapter() => Init();

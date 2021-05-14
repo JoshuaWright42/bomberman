@@ -5,14 +5,14 @@ namespace BomberManGame
 {
     public class Game
     {
-        private Entity plr;
+        public static readonly Random RNG = new Random();
 
         public Game()
         {
             Map.CreateNewInstance(21, 11);
             UIAdapter.Instance.OpenGameWindow(21, 11);
             UIAdapter.Instance.LoadAssets();
-            plr = EntityFactory.Instance.CreatePlayer(0, 1, 1, 32, 32);
+            EntityFactory.Instance.CreatePlayersFromXML();
         }
 
         public void StartGame()

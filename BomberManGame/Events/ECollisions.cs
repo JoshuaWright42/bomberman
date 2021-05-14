@@ -8,46 +8,27 @@ namespace BomberManGame
     {
         private List<CPlayer> Players { get; init; }
 
-        public delegate void OnPlayerMove(CPlayer sender, Direction dir, ref bool success);
-        private event OnPlayerMove Solids;
-
         public delegate void OnCollide(CPlayer sender);
         private event OnCollide Effects;
 
-        public ECollisions()
-        {
-            Players = new List<CPlayer>();
-        }
+        public ECollisions() => Players = new List<CPlayer>();
 
-        public void AddPlayer(CPlayer plr)
-        {
-            Players.Add(plr);
-        }
-
-        public void RemovePlayer(CPlayer plr)
-        {
-            Players.Remove(plr);
-        }
-
-        public void Subscribe(OnPlayerMove sub) => Solids += sub;
-        public void UnSubscribe(OnPlayerMove sub) => Solids -= sub;
+        public void AddPlayer(CPlayer plr) => Players.Add(plr);
+        public void RemovePlayer(CPlayer plr) => Players.Remove(plr);
 
         public void Subscribe(OnCollide sub) => Effects += sub;
         public void Unsubscribe(OnCollide sub) => Effects -= sub;
 
-        public void TryPlayerMove(CPlayer plr, Direction dir)
-        {
-            bool successful = true;
-            Solids?.Invoke(plr, dir, ref successful);
-            if (successful) plr.Move(dir);
-        }
-
         public void CheckCollisions()
         {
+            Players.ForEach(plr => Effects?.Invoke(plr));
+
+            List<CPlayer> toKill = new List<CPlayer>();
             foreach (CPlayer plr in Players)
             {
-                Effects?.Invoke(plr);
+                if (plr.Data.isDead) toKill.Add(plr);
             }
+            toKill.ForEach(plr => plr.Destroy());
         }
     }
 }

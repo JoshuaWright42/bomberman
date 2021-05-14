@@ -8,4 +8,9 @@
   <ItemGroup>
     <ProjectReference Include="..\BomberManGame\BomberManGame.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Update="config.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>

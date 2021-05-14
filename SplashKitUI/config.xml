@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE settings [
+<!ELEMENT settings (players,setting+)>
+<!ELEMENT players (player+)>
+<!ELEMENT setting (#PCDATA)>
+<!ELEMENT player (spawn,controls)>
+<!ELEMENT spawn (cell+)>
+<!ELEMENT controls (control+)>
+<!ELEMENT cell EMPTY>
+<!ELEMENT control EMPTY>
+<!ATTLIST players id ID #REQUIRED>
+<!ATTLIST player id ID #REQUIRED>
+<!ATTLIST cell x CDATA #REQUIRED y CDATA #REQUIRED>
+<!ATTLIST control type CDATA #REQUIRED key CDATA #REQUIRED>
+<!ATTLIST setting name ID #REQUIRED>
+]>
+<settings>
+    <players id="players" num="1">
+        <player id="0">
+            <spawn>
+                <cell x="1" y="1" />
+                <cell x="1" y="2" />
+                <cell x="2" y="1" />
+            </spawn>
+            <controls>
+                <control type="Left" key="LeftKey" />
+                <control type="Right" key="RightKey" />
+                <control type="Up" key="UpKey" />
+                <control type="Down" key="DownKey" />
+                <control type="Place" key="ZKey" />
+            </controls>
+        </player>
+    </players>
+    <setting name="CELL_WIDTH">32</setting>
+    <setting name="CELL_HEIGHT">32</setting>
+    <setting name="ITEM_DROP_CHANCE">0.5</setting>
+    <setting name="CRATE_CHANCE">0.5</setting>
+    <setting name="EXPLOSION_LENGTH">200</setting>
+    <setting name="PLAYER_SPEED">2.0</setting>
+    <setting name="PLAYER_FUSE">3000</setting>
+</settings>
