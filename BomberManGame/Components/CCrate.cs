@@ -13,7 +13,7 @@ namespace BomberManGame.EntityComponents
             CDraw pos = compSelf.Self.GetComponent<CDraw>();
 
             ITile tile;
-            if (Game.RNG.NextDouble() < Constants.ITEM_DROP_CHANCE)
+            if (Game.RNG.NextDouble() < Settings.ItemDropChance)
             {
                 tile = EntityFactory.Instance.CreateExplosion(pos.X, pos.Y, onDestroyed).GetComponent<CExplosion>(); ;
             }

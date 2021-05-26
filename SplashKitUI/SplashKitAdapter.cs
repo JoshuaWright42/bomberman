@@ -35,8 +35,8 @@ namespace SplashKitUI
 
         public override void DrawEntity(CDraw toDraw) //draws regular entities (not players)
         {
-            float absX = toDraw.X * Constants.CELL_WIDTH;
-            float absY = toDraw.Y * Constants.CELL_HEIGHT;
+            float absX = toDraw.X * Settings.CellWidth;
+            float absY = toDraw.Y * Settings.CellHeight;
             SplashKit.DrawBitmap(SplashKit.BitmapNamed("Air"), absX, absY);
             SplashKit.DrawBitmap(SplashKit.BitmapNamed(toDraw.Type.ToString()), absX, absY);
         }
@@ -61,8 +61,8 @@ namespace SplashKitUI
                 plr.Data.AbsoluteX,
                 plr.Data.AbsoluteY,
                 SplashKit.BitmapNamed(toCheck.Type.ToString()),
-                toCheck.X * Constants.CELL_WIDTH,
-                toCheck.Y * Constants.CELL_HEIGHT
+                toCheck.X * Settings.CellWidth,
+                toCheck.Y * Settings.CellHeight
                 );
         }
 
@@ -73,7 +73,7 @@ namespace SplashKitUI
 
         public override void OpenGameWindow(int cols, int rows)
         {
-            new Window("BomberMan - Wright Edition", cols * Constants.CELL_WIDTH, rows * Constants.CELL_HEIGHT);
+            new Window("BomberMan - Wright Edition", cols * Settings.CellWidth, rows * Settings.CellHeight);
             SplashKit.ClearScreen(Color.Gray);
         }
 

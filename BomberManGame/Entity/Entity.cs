@@ -34,14 +34,14 @@ namespace BomberManGame.EntityComponents
         /// </summary>
         /// <typeparam name="T">Type of component it is.</typeparam>
         /// <param name="comp">The component itself.</param>
-        public void AddComponent<T>(Component comp) where T: Component => Components.Add(typeof(T), comp);
+        public void AddComponent<T>(Component comp) where T : Component => Components.Add(typeof(T), comp);
 
         /// <summary>
         /// Get's the desired component from the dictionary.
         /// </summary>
         /// <typeparam name="T">The type of component desired.</typeparam>
         /// <returns>The component itself.</returns>
-        public T GetComponent<T>() where T: Component => (T)Components[typeof(T)];
+        public T GetComponent<T>() where T : Component => (T)Components[typeof(T)];
 
         public bool HasComponent<T>() where T : Component => Components.ContainsKey(typeof(T));
 

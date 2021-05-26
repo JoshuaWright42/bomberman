@@ -61,7 +61,7 @@ namespace BomberManGame.EntityComponents
                 if (location.IndexOf(c) == dir) //bomb was triggered by another bomb
                 {
                     //Syntax for '?' operator:
-                    // (condition) ? (result if true): (result if false)
+                    // (condition) ? (result if true) : (result if false)
                     //Passes on the bigger of the two explosions in this direction.
                     c.Data.Explode((size > Radius ? size : Radius) - 1);
                 }

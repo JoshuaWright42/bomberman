@@ -12,6 +12,7 @@ namespace BomberManGame
     /// </summary>
     public class Cell : IEnumerable<Cell>
     {
+
         private ITile _data;
         public ITile Data
         {

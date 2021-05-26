@@ -29,9 +29,8 @@ namespace BomberManGame.EntityComponents
             Timer.Start(); //starts timer
         }
 
-        public void Stop()
-        {
-            Timer.Stop();
-        }
+        public void Stop() => Timer.Stop();
+
+        public override void Destroy() => Stop();
     }
 }

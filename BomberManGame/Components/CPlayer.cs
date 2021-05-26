@@ -64,8 +64,8 @@ namespace BomberManGame.EntityComponents
 
         private void UpdatePlayerCell()
         {
-            int w = Constants.CELL_WIDTH;
-            int h = Constants.CELL_HEIGHT;
+            int w = Settings.CellWidth;
+            int h = Settings.CellHeight;
             float plrX = Data.AbsoluteX + (w / 2);
             float plrY = Data.AbsoluteY + (h / 2);
             int cellX = (int)(plrX / w);
