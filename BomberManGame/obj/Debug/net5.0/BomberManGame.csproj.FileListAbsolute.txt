@@ -10,3 +10,15 @@
 /Users/joshuawright/Documents/OOP/bomberman/BomberManGame/obj/Debug/net5.0/ref/BomberManGame.dll
 /Users/joshuawright/Documents/OOP/bomberman/BomberManGame/obj/Debug/net5.0/BomberManGame.pdb
 /Users/joshuawright/Documents/OOP/bomberman/BomberManGame/obj/Debug/net5.0/BomberManGame.csprojAssemblyReference.cache
+C:\Users\jwright\Source\Repos\bomberman\BomberManGame\bin\Debug\net5.0\BomberManGame.deps.json
+C:\Users\jwright\Source\Repos\bomberman\BomberManGame\bin\Debug\net5.0\BomberManGame.dll
+C:\Users\jwright\Source\Repos\bomberman\BomberManGame\bin\Debug\net5.0\ref\BomberManGame.dll
+C:\Users\jwright\Source\Repos\bomberman\BomberManGame\bin\Debug\net5.0\BomberManGame.pdb
+C:\Users\jwright\Source\Repos\bomberman\BomberManGame\obj\Debug\net5.0\BomberManGame.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jwright\Source\Repos\bomberman\BomberManGame\obj\Debug\net5.0\BomberManGame.AssemblyInfoInputs.cache
+C:\Users\jwright\Source\Repos\bomberman\BomberManGame\obj\Debug\net5.0\BomberManGame.AssemblyInfo.cs
+C:\Users\jwright\Source\Repos\bomberman\BomberManGame\obj\Debug\net5.0\BomberManGame.csproj.CoreCompileInputs.cache
+C:\Users\jwright\Source\Repos\bomberman\BomberManGame\obj\Debug\net5.0\BomberManGame.dll
+C:\Users\jwright\Source\Repos\bomberman\BomberManGame\obj\Debug\net5.0\ref\BomberManGame.dll
+C:\Users\jwright\Source\Repos\bomberman\BomberManGame\obj\Debug\net5.0\BomberManGame.pdb
+C:\Users\jwright\source\repos\bomberman\BomberManGame\obj\Debug\net5.0\BomberManGame.csproj.AssemblyReference.cache

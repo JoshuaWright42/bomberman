@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Timers;
 using System.Xml;
-using BomberManGame.EntityComponents;
+using BomberManGame.Components;
+using BomberManGame.Interfaces;
 
-namespace BomberManGame
+namespace BomberManGame.Entities
 {
     /// <summary>
     /// Singleton. Factory. Responsible for creation of any and all entities.
@@ -37,7 +38,7 @@ namespace BomberManGame
         /// Used by most other entity "constructors". Generates entity with commonly
         /// used components.
         /// </summary>
-        private Entity CreateBasicEntity(int x, int y, EntityType type, Cell loc = null)
+        public Entity CreateBasicEntity(int x, int y, EntityType type, Cell loc = null)
         {
             Entity result = new Entity();
             if (loc == null) loc = Map.Instance[x, y];
@@ -126,7 +127,7 @@ namespace BomberManGame
         /// </summary>
         public ITile CreatePowerUp(int x, int y)
         {
-            return CreateAir(x, y).GetComponent<CAir>(); //replace later
+            return ItemFactory.Instance.GenerateItem(x, y);
         }
 
 

@@ -1,8 +1,9 @@
-﻿using System;
+﻿using BomberManGame.Components;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BomberManGame.EntityComponents
+namespace BomberManGame.Entities
 {
     /// <summary>
     /// Every thing in the game is an Entity.

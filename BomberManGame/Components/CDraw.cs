@@ -1,5 +1,7 @@
 ﻿using System;
-namespace BomberManGame.EntityComponents
+using BomberManGame.Entities;
+
+namespace BomberManGame.Components
 {
     /// <summary>
     /// Draw component. Any entity which can be drawn needs this.
@@ -18,7 +20,7 @@ namespace BomberManGame.EntityComponents
         /// <param name="self">The Entity this component belongs too.</param>
         /// <param name="x">X position.</param>
         /// <param name="y">Y position.</param>
-        internal CDraw(Entity self, int x, int y, EntityType type): base (self)
+        public CDraw(Entity self, int x, int y, EntityType type): base (self)
         {
             X = x;
             Y = y;

@@ -1,6 +1,8 @@
 ﻿using System;
+using BomberManGame.Entities;
+using BomberManGame.Interfaces;
 
-namespace BomberManGame.EntityComponents
+namespace BomberManGame.Components
 {
     /// <summary>
     /// Generic type for a "Component".
@@ -22,10 +24,12 @@ namespace BomberManGame.EntityComponents
         internal Component(Entity self)
         {
             Self = self;
+            (this as IAffectPlayer)?.Subscribe(); //if this component affects player, call it's subscribe method
         }
 
         public virtual void Destroy()
         {
+            (this as IAffectPlayer)?.UnSubcribe(); //if this component affects player, call it's unsubscribe method
         }
     }
 }

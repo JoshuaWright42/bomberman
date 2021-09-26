@@ -1,5 +1,8 @@
 ﻿using System;
-namespace BomberManGame.EntityComponents
+using BomberManGame.Entities;
+using BomberManGame.Interfaces;
+
+namespace BomberManGame.Components
 {
     /// <summary>
     /// Brick Component. Is a type of tile. Represents a solid wall/cell.

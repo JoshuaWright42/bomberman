@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/joshuawright/Documents/OOP/bomberman/SplashKitUI/SplashKitUI.csproj": {}
+    "C:\\Users\\jwright\\source\\repos\\bomberman\\SplashKitUI\\SplashKitUI.csproj": {}
   },
   "projects": {
-    "/Users/joshuawright/Documents/OOP/bomberman/BomberManGame/BomberManGame.csproj": {
+    "C:\\Users\\jwright\\source\\repos\\bomberman\\BomberManGame\\BomberManGame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/joshuawright/Documents/OOP/bomberman/BomberManGame/BomberManGame.csproj",
+        "projectUniqueName": "C:\\Users\\jwright\\source\\repos\\bomberman\\BomberManGame\\BomberManGame.csproj",
         "projectName": "BomberManGame",
-        "projectPath": "/Users/joshuawright/Documents/OOP/bomberman/BomberManGame/BomberManGame.csproj",
-        "packagesPath": "/Users/joshuawright/.nuget/packages/",
-        "outputPath": "/Users/joshuawright/Documents/OOP/bomberman/BomberManGame/obj/",
+        "projectPath": "C:\\Users\\jwright\\source\\repos\\bomberman\\BomberManGame\\BomberManGame.csproj",
+        "packagesPath": "C:\\Users\\jwright\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jwright\\source\\repos\\bomberman\\BomberManGame\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/joshuawright/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\jwright\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -52,34 +54,36 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.202/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/joshuawright/Documents/OOP/bomberman/SplashKitUI/SplashKitUI.csproj": {
+    "C:\\Users\\jwright\\source\\repos\\bomberman\\SplashKitUI\\SplashKitUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/joshuawright/Documents/OOP/bomberman/SplashKitUI/SplashKitUI.csproj",
+        "projectUniqueName": "C:\\Users\\jwright\\source\\repos\\bomberman\\SplashKitUI\\SplashKitUI.csproj",
         "projectName": "SplashKitUI",
-        "projectPath": "/Users/joshuawright/Documents/OOP/bomberman/SplashKitUI/SplashKitUI.csproj",
-        "packagesPath": "/Users/joshuawright/.nuget/packages/",
-        "outputPath": "/Users/joshuawright/Documents/OOP/bomberman/SplashKitUI/obj/",
+        "projectPath": "C:\\Users\\jwright\\source\\repos\\bomberman\\SplashKitUI\\SplashKitUI.csproj",
+        "packagesPath": "C:\\Users\\jwright\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jwright\\source\\repos\\bomberman\\SplashKitUI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/joshuawright/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\jwright\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
-            "targetAlias": "net5.0",
+            "targetAlias": "netcoreapp5.0",
             "projectReferences": {
-              "/Users/joshuawright/Documents/OOP/bomberman/BomberManGame/BomberManGame.csproj": {
-                "projectPath": "/Users/joshuawright/Documents/OOP/bomberman/BomberManGame/BomberManGame.csproj"
+              "C:\\Users\\jwright\\source\\repos\\bomberman\\BomberManGame\\BomberManGame.csproj": {
+                "projectPath": "C:\\Users\\jwright\\source\\repos\\bomberman\\BomberManGame\\BomberManGame.csproj"
               }
             }
           }
@@ -92,7 +96,7 @@
       },
       "frameworks": {
         "net5.0": {
-          "targetAlias": "net5.0",
+          "targetAlias": "netcoreapp5.0",
           "imports": [
             "net461",
             "net462",
@@ -108,7 +112,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.202/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Text.Json;
-using BomberManGame.EntityComponents;
+using BomberManGame.Components;
 using System.Xml;
+using System.Collections.Generic;
 
 namespace BomberManGame
 {

@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using BomberManGame.EntityComponents;
+using BomberManGame.Components;
+using BomberManGame.Entities;
+using BomberManGame.Interfaces;
 
 namespace BomberManGame
 {

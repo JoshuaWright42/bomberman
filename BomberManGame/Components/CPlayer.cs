@@ -1,6 +1,7 @@
 ﻿using System;
+using BomberManGame.Entities;
 
-namespace BomberManGame.EntityComponents
+namespace BomberManGame.Components
 {
     public class CPlayer: Component
     {

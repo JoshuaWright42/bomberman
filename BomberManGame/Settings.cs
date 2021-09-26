@@ -2,6 +2,8 @@
 using System.Reflection;
 using System.Xml;
 using System.Collections.Generic;
+using BomberManGame.Entities;
+using static BomberManGame.Entities.ItemFactory;
 
 namespace BomberManGame
 {
@@ -14,7 +16,7 @@ namespace BomberManGame
         public static int ExplosionLength { get; private set; }
         public static float PlayerSpeed { get; private set; }
         public static int PlayerFuse { get; private set; }
-        public static Dictionary<Type, int> Items { get; private set; }
+        public static List<ItemData> Items { get; private set; }
 
         static Settings()
         {
@@ -30,20 +32,26 @@ namespace BomberManGame
             ExplosionLength = ReadInteger("EXPLOSION_LENGTH");
             PlayerSpeed = ReadFloat("PLAYER_SPEED");
             PlayerFuse = ReadInteger("PLAYER_FUSE");
-            //LoadItemsFromXML();
+            LoadItemsFromXML();
         }
 
         static void LoadItemsFromXML()
         {
+            Items = new List<ItemData>();
             XmlNodeList items = UIAdapter.Instance.Config.GetElementsByTagName("item");
-            Assembly assem = typeof(IAffectPlayer).Assembly;
             foreach (XmlNode item in items)
             {
-                if (ReadBoolean("enabled"))
+                int totalWeight = 0;
+                if (Convert.ToBoolean(item.Attributes["enabled"].Value))
                 {
-                    Type itemType = assem.GetType($"BomberManGame.C{item.Attributes["type"].Value}");
-                    int weight = Convert.ToInt32(item.Attributes["weight"].Value);
-                    Items.Add(itemType, weight);
+                    string typeAsString = item.Attributes["type"].Value;
+                    MethodInfo method = typeof(ItemFactory).GetMethod(typeAsString);
+                    EntityType type = Enum.Parse<EntityType>(typeAsString);
+                    if (method is not null)
+                    {
+                        totalWeight += Convert.ToInt32(item.Attributes["weight"].Value);
+                        Items.Add(new ItemData(method, type, totalWeight));
+                    }
                 }
             }
         }

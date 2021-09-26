@@ -1,7 +1,8 @@
 ﻿using System;
-using BomberManGame.EntityComponents;
+using BomberManGame.Components;
+using BomberManGame.Entities;
 
-namespace BomberManGame
+namespace BomberManGame.Interfaces
 {
     /// <summary>
     /// Mainly used as a way of identifying Entities that are Tiles.

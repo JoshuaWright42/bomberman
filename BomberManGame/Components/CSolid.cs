@@ -1,5 +1,7 @@
 ﻿using System;
-namespace BomberManGame.EntityComponents
+using BomberManGame.Entities;
+
+namespace BomberManGame.Components
 {
     public class CSolid: Component
     {

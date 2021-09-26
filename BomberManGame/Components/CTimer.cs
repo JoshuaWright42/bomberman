@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Timers;
+using BomberManGame.Entities;
 
-namespace BomberManGame.EntityComponents
+namespace BomberManGame.Components
 {
     /// <summary>
     /// Timer component. Any entity which needs to update after an elapsed time needs this.
@@ -21,7 +22,7 @@ namespace BomberManGame.EntityComponents
         /// <param name="self">The Entity this component belongs too.</param>
         /// <param name="length">The timed interval (milliseconds)</param>
         /// <param name="handler">The method/handler to call once time has passed.</param>
-        internal CTimer(Entity self, int length, ElapsedEventHandler handler): base (self)
+        public CTimer(Entity self, int length, ElapsedEventHandler handler): base (self)
         {
             Timer = new Timer(length); //create timer
             Timer.Elapsed += handler; //subscribe the passed in handler

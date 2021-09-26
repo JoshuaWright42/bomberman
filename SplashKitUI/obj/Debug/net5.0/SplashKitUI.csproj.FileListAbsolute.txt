@@ -1,0 +1,5 @@
+C:\Users\jwright\source\repos\bomberman\SplashKitUI\obj\Debug\net5.0\SplashKitUI.csproj.AssemblyReference.cache
+C:\Users\jwright\source\repos\bomberman\SplashKitUI\obj\Debug\net5.0\SplashKitUI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jwright\source\repos\bomberman\SplashKitUI\obj\Debug\net5.0\SplashKitUI.AssemblyInfoInputs.cache
+C:\Users\jwright\source\repos\bomberman\SplashKitUI\obj\Debug\net5.0\SplashKitUI.AssemblyInfo.cs
+C:\Users\jwright\source\repos\bomberman\SplashKitUI\obj\Debug\net5.0\SplashKitUI.csproj.CoreCompileInputs.cache

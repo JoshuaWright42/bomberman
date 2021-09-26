@@ -1,6 +1,8 @@
 ﻿using System;
+using BomberManGame.Entities;
+using BomberManGame.Interfaces;
 
-namespace BomberManGame.EntityComponents
+namespace BomberManGame.Components
 {
     /// <summary>
     /// Air Component. Is a type of tile. Represents an empty cell.

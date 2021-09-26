@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "SplashKitUI/1.0.0": {
+        "dependencies": {
+          "BomberManGame": "1.0.0"
+        },
+        "runtime": {
+          "SplashKitUI.dll": {}
+        }
+      },
+      "BomberManGame/1.0.0": {
+        "runtime": {
+          "BomberManGame.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SplashKitUI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BomberManGame/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

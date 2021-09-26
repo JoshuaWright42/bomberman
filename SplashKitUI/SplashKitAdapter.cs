@@ -1,6 +1,6 @@
 ﻿using System;
 using BomberManGame;
-using BomberManGame.EntityComponents;
+using BomberManGame.Components;
 using SplashKitSDK;
 using System.Collections.Generic;
 using System.Xml;

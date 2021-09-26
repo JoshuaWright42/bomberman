@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Timers;
+using BomberManGame.Entities;
+using BomberManGame.Interfaces;
 
-namespace BomberManGame.EntityComponents
+namespace BomberManGame.Components
 {
     /// <summary>
     /// Explosion Component. Is a type of ITile. Any Explosion entity needs this component.
@@ -14,9 +16,9 @@ namespace BomberManGame.EntityComponents
         /// Constructor. Doesn't do anything special.
         /// </summary>
         /// <param name="self">The Entity this component belongs too.</param>
-        internal CExplosion(Entity self): base (self)
+        public CExplosion(Entity self): base (self)
         {
-            EventPublisher.Instance.GetEvent<ECollisions>().Subscribe(onCollide);
+            
         }
 
         public void onCollide(CPlayer plr)
@@ -25,11 +27,6 @@ namespace BomberManGame.EntityComponents
             {
                 plr.Data.isDead = true;
             }
-        }
-
-        public override void Destroy()
-        {
-            EventPublisher.Instance.GetEvent<ECollisions>().Unsubscribe(onCollide);
         }
 
         /// <summary>

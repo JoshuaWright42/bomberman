@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Timers;
+using BomberManGame.Entities;
+using BomberManGame.Interfaces;
 
-namespace BomberManGame.EntityComponents
+namespace BomberManGame.Components
 {
     /// <summary>
     /// Bomb Component. Is a type of ITile. Any bomb entity needs this component.
@@ -22,7 +24,7 @@ namespace BomberManGame.EntityComponents
         /// </summary>
         /// <param name="self">The Entity this component belongs too.</param>
         /// <param name="rad">The size/radius of the explosion when detonated.</param>
-        internal CBomb(Entity self, CPlayer owner, int rad) : base(self)
+        public CBomb(Entity self, CPlayer owner, int rad) : base(self)
         {
             Owner = owner;
             Radius = rad;
@@ -63,11 +65,11 @@ namespace BomberManGame.EntityComponents
                     //Syntax for '?' operator:
                     // (condition) ? (result if true) : (result if false)
                     //Passes on the bigger of the two explosions in this direction.
-                    c.Data.Explode((size > Radius ? size : Radius) - 1);
+                    c.Data.Explode((size > Radius ? size : Radius) - 1, dir);
                 }
                 else
                 {
-                    c.Data.Explode(Radius - 1); //Sends explosion of the bombs size in this direciton
+                    c.Data.Explode(Radius - 1, location.IndexOf(c)); //Sends explosion of the bombs size in this direciton
                 }
             }
         }

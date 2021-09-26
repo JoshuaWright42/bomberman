@@ -1,5 +1,5 @@
 ﻿using System;
-using BomberManGame.EntityComponents;
+using BomberManGame.Components;
 
 namespace BomberManGame
 {

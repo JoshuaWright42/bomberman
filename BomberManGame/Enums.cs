@@ -8,7 +8,8 @@ namespace BomberManGame
         Player,
         Air,
         Brick,
-        Crate
+        Crate,
+        ItemRange
     }
 
     public enum ControlType

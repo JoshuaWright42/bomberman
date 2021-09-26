@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using BomberManGame.EntityComponents;
+using BomberManGame.Components;
 
 namespace BomberManGame
 {
