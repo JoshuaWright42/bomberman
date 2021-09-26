@@ -1,0 +1,90 @@
+{
+  "version": 3,
+  "targets": {
+    "net5.0": {
+      "BomberManGame/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/BomberManGame.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BomberManGame.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BomberManGame/1.0.0": {
+      "type": "project",
+      "path": "../BomberManGame/BomberManGame.csproj",
+      "msbuildProject": "../BomberManGame/BomberManGame.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net5.0": [
+      "BomberManGame >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\jwright\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\jwright\\source\\repos\\bomberman\\Server\\Server.csproj",
+      "projectName": "Server",
+      "projectPath": "C:\\Users\\jwright\\source\\repos\\bomberman\\Server\\Server.csproj",
+      "packagesPath": "C:\\Users\\jwright\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jwright\\source\\repos\\bomberman\\Server\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\jwright\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net5.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "projectReferences": {
+            "C:\\Users\\jwright\\source\\repos\\bomberman\\BomberManGame\\BomberManGame.csproj": {
+              "projectPath": "C:\\Users\\jwright\\source\\repos\\bomberman\\BomberManGame\\BomberManGame.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net5.0": {
+        "targetAlias": "net5.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

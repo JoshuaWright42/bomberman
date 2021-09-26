@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.6.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BomberManGame", "BomberManGame\BomberManGame.csproj", "{7D776FDE-10EA-49B8-A020-2380FE8A0C12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BomberManGame", "BomberManGame\BomberManGame.csproj", "{7D776FDE-10EA-49B8-A020-2380FE8A0C12}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SplashKitUI", "SplashKitUI\SplashKitUI.csproj", "{C5215EF1-A933-46AA-ABB9-F16F98BCA83F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SplashKitUI", "SplashKitUI\SplashKitUI.csproj", "{C5215EF1-A933-46AA-ABB9-F16F98BCA83F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnitTests", "NUnitTests\NUnitTests.csproj", "{630309CA-4829-43C4-8FE2-75BC8738AE05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NUnitTests", "NUnitTests\NUnitTests.csproj", "{630309CA-4829-43C4-8FE2-75BC8738AE05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{500F81D7-BA8B-4AC8-8500-0D62EBB46C44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{CAF4B016-1184-4266-8A49-239A05D5CAE6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,9 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{7D776FDE-10EA-49B8-A020-2380FE8A0C12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -58,6 +59,36 @@ Global
 		{630309CA-4829-43C4-8FE2-75BC8738AE05}.Release|x64.Build.0 = Release|Any CPU
 		{630309CA-4829-43C4-8FE2-75BC8738AE05}.Release|x86.ActiveCfg = Release|Any CPU
 		{630309CA-4829-43C4-8FE2-75BC8738AE05}.Release|x86.Build.0 = Release|Any CPU
+		{500F81D7-BA8B-4AC8-8500-0D62EBB46C44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{500F81D7-BA8B-4AC8-8500-0D62EBB46C44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{500F81D7-BA8B-4AC8-8500-0D62EBB46C44}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{500F81D7-BA8B-4AC8-8500-0D62EBB46C44}.Debug|x64.Build.0 = Debug|Any CPU
+		{500F81D7-BA8B-4AC8-8500-0D62EBB46C44}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{500F81D7-BA8B-4AC8-8500-0D62EBB46C44}.Debug|x86.Build.0 = Debug|Any CPU
+		{500F81D7-BA8B-4AC8-8500-0D62EBB46C44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{500F81D7-BA8B-4AC8-8500-0D62EBB46C44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{500F81D7-BA8B-4AC8-8500-0D62EBB46C44}.Release|x64.ActiveCfg = Release|Any CPU
+		{500F81D7-BA8B-4AC8-8500-0D62EBB46C44}.Release|x64.Build.0 = Release|Any CPU
+		{500F81D7-BA8B-4AC8-8500-0D62EBB46C44}.Release|x86.ActiveCfg = Release|Any CPU
+		{500F81D7-BA8B-4AC8-8500-0D62EBB46C44}.Release|x86.Build.0 = Release|Any CPU
+		{CAF4B016-1184-4266-8A49-239A05D5CAE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAF4B016-1184-4266-8A49-239A05D5CAE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAF4B016-1184-4266-8A49-239A05D5CAE6}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CAF4B016-1184-4266-8A49-239A05D5CAE6}.Debug|x64.Build.0 = Debug|Any CPU
+		{CAF4B016-1184-4266-8A49-239A05D5CAE6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CAF4B016-1184-4266-8A49-239A05D5CAE6}.Debug|x86.Build.0 = Debug|Any CPU
+		{CAF4B016-1184-4266-8A49-239A05D5CAE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAF4B016-1184-4266-8A49-239A05D5CAE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAF4B016-1184-4266-8A49-239A05D5CAE6}.Release|x64.ActiveCfg = Release|Any CPU
+		{CAF4B016-1184-4266-8A49-239A05D5CAE6}.Release|x64.Build.0 = Release|Any CPU
+		{CAF4B016-1184-4266-8A49-239A05D5CAE6}.Release|x86.ActiveCfg = Release|Any CPU
+		{CAF4B016-1184-4266-8A49-239A05D5CAE6}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F6F87E49-6BA9-4CD8-BE46-6E6CED548C2B}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
