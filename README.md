@@ -18,3 +18,23 @@ All relevant documentation can be found in the Documentation/ directory. Code ha
 - BomberManGame: Backend code, the "brains" of the game, theoretically adaptable to any frontend/UI
 - NUnitTest: Testing project for the backend, runs unit tests on relevant code.
 - SplashKitUI: A frontend/UI for desktop based platforms using the SplashKit API from https://splashkit.io
+- Client: Code for managing a client
+- Server: Code for running a hosted server
+
+# Developers
+Below is information for developers of this plugin.
+
+## Repo Management
+ - When coding, NEVER operate out of master.
+ - Branch naming conventions are as follows:
+    - feature-NameOfFeature (for new features)
+    - fix-NameOfFix (for bug fixes and/or updates of existing features)
+    - test-NameOfTest (for any testing)
+ - If a branch is abandoned, please permanantly delete it.
+
+### Merging to Master
+ - Only merge to master when the feature/fix/test is complete.
+ - Merges must only be made via pull requests.
+ - Assuming there are no conflicts, contributers may freely merge pull requests.
+ - If there are conflicts, resolve with descretion, and involve other contributers when necessary.
+
