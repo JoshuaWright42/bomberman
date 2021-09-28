@@ -36,7 +36,6 @@
     </players>
     <items id="items">
         <item type="ItemRange" weight="50" enabled="true"/>
-        <item type="ItemSpeed" weight="500" enabled="true"/>
     </items>
     <setting name="CELL_WIDTH">32</setting>
     <setting name="CELL_HEIGHT">32</setting>
