@@ -1,30 +1,11 @@
 {
   "version": 3,
   "targets": {
-    "net5.0": {
-      "BomberManGame/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "compile": {
-          "bin/placeholder/BomberManGame.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/BomberManGame.dll": {}
-        }
-      }
-    }
+    "net5.0": {}
   },
-  "libraries": {
-    "BomberManGame/1.0.0": {
-      "type": "project",
-      "path": "../BomberManGame/BomberManGame.csproj",
-      "msbuildProject": "../BomberManGame/BomberManGame.csproj"
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    "net5.0": [
-      "BomberManGame >= 1.0.0"
-    ]
+    "net5.0": []
   },
   "packageFolders": {
     "C:\\Users\\jwright\\.nuget\\packages\\": {}
@@ -52,11 +33,7 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {
-            "C:\\Users\\jwright\\source\\repos\\bomberman\\BomberManGame\\BomberManGame.csproj": {
-              "projectPath": "C:\\Users\\jwright\\source\\repos\\bomberman\\BomberManGame\\BomberManGame.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
